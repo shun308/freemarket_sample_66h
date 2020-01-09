@@ -155,7 +155,11 @@
 - has_one :product
 
 ## Categoriesテーブル
-*************************************************
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false, unique: true|
+|number|integer|null: false, unique: true|
+|number_path|integer|null: false, unique: true|
 
 ### Association
 has_many :products
