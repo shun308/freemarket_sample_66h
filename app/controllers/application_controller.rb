@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
                     aaaaaaaa
                     takeutiです
                     kamataです
+                    oginoです、からの
                     hello, world!
                   "
   end
