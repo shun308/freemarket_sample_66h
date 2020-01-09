@@ -104,7 +104,6 @@
 |image_id|reference|null: false, index: true|
 |price|string|null: false, index: true|
 |category_id|reference|null: false, index: true, foreign_key: true|
-|order_id|reference|null: false,,,,,foreign_key:true| 
 
 ### Association
 
