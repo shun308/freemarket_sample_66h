@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
     render html:  "
                     aaaaaaaa
                     takeutiです
+                    kamataです
                     hello, world!
                   "
   end
