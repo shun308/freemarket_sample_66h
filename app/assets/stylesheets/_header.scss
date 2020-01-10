@@ -1,0 +1,242 @@
+.main-header {
+  height: 100px;
+  width: 100%;
+  position: relative;
+
+  .header_inner {
+    width: 1020px;
+    height: 100px;
+    margin: 0 auto;
+    padding: 8px 0 0;
+    z-index: 100;
+    &_top {
+      height: 40px;
+      margin:1px;
+      padding: 0;
+      .logo {
+        height: 36px;
+        width: 130px;
+        margin: 2px 2px;
+        float: left;
+      }
+      .header_form {
+        height: 40px;
+        width: 82%;
+        margin: left 45px;
+        border-radius: 5px;
+        border: solid 1px rgb(202, 202, 202);
+        background-color: rgb(243, 243, 243);
+        float: right;
+        &__textfield {
+          height: 40px;
+          width: 790px;
+          padding-left: 20px;
+          opacity: 0.5;
+          line-height: 40px;
+          float: left;
+        }
+        input, button, textarea, select {
+          margin: 0;
+          padding: 0;
+          background: none;
+          border: none;
+          border-radius: 0;
+          outline: none;
+          -webkit-appearance: none;
+          -moz-appearance: none;
+          appearance: none;
+        }
+        .search-icon {
+          height: 40px;
+          width: 44px;
+          float: right;
+          cursor: pointer;
+          background-color: rgb(243, 243, 243);
+          .loupe-icon {
+            font-size: 16px;
+            opacity: 0.5;
+          }
+        }
+      }
+    }
+    .header_bottom-crearfix {
+      height: 50px;
+      margin-top: 8px;
+      padding: 0;
+      .left-contents {
+        height: 40px;
+        width: 350px;
+        margin: 5px 5px;
+        float: left;
+        font-weight: 600;
+        &_search-nav {
+          height: 40px;
+          width: 350px;
+          display: flex;
+          .category_nav {
+            width: 150px;
+            display: inline-block;
+            padding: 6px;
+            .category_text {
+              font-size: 14px;
+              float: right;
+            }
+            .category_icon {
+              height: 20px;
+              width: 20px;
+              float: left;
+              padding: bottom 2px;
+              .border-icon {
+                font-size: 16px;
+                padding: 2px;
+                position: absolute;
+                opacity: 0.9;
+                color: rgb(255, 0, 0);
+              }
+            }
+          }
+          .brand_nav {
+            width: 140px;
+            display: inline-block;
+            padding: 6px;
+            .brand_text {
+              font-size: 14px;
+              float: right;
+            }
+            .brand_icon {
+              height: 20px;
+              width: 20px;
+              float: left;
+              padding: bottom 2px;
+              .label-icon {
+                font-size: 16px;
+                padding: 2px;
+                position: absolute;
+                opacity: 0.9;
+                color: rgb(255, 0, 0);
+              }
+            }
+          }
+        }
+      }
+      .right-contents {
+        height: 40px;
+        width: 380px;
+        margin: 5px 0;
+        float: right;
+        &_user-nav {
+          height: 40px;
+          width: 380px;
+          display: flex;
+          .right-header_notification {
+            width: 80px;
+            padding: 6px;
+            display: inline-block;
+            &_text {
+              font-size: 14px;
+              float: right;
+            }
+            &_icon {
+              height: 20px;
+              width: 20px;
+              float: left;
+              padding: bottom 2px;
+              .horn-icon {
+                font-size: 16px;
+                padding: 2px;
+                position: absolute;
+                opacity: 0.5;
+              }
+            }
+          }
+          .right-header_todo-list {
+            width: 125px;
+            padding: 6px;
+            display: inline-block;
+            &_text {
+              font-size: 14px;
+              float: right;
+            }
+            &_icon {
+              height: 20px;
+              width: 20px;
+              float: left;
+              padding: bottom 2px;
+              .check-icon {
+                font-size: 16px;
+                padding: 2px;
+                position: absolute;
+                opacity: 0.5;
+              }
+            }
+          }
+          .right-header_mypage-link {
+            width: 100px;
+            padding: 6px;
+            display: inline-block;
+            &_text {
+              font-size: 14px;
+              float: right;
+            }
+            &_icon {
+              height: 20px;
+              width: 20px;
+              float: left;
+              padding: bottom 2px;
+
+              .user-icon {
+                font-size: 16px;
+                padding: 2px;
+                position: absolute;
+                opacity: 0.5;
+              }
+            }
+          }
+          li.right-header_log-in {
+            height: 30px;
+            width: 84px;
+            display: block;
+            padding: 0 10px;
+            line-height: 30px;
+            border-radius: 4px;
+            text-align: center;
+            background: #ea352d;
+            border: 1px solid #ea352d;
+            color: #fff;
+            text-decoration: none;
+            font-size: 14px;
+            margin-left: auto;
+            font-weight: 500;
+            a {
+              text-decoration: none;
+              color: #fff;
+              }
+          }
+          .right-header_sign-up {
+            height: 30px;
+            width: 56px;
+            display: block;
+            padding: 0 10px;
+            margin-left: 10px;
+            line-height: 30px;
+            border-radius: 4px;
+            text-align: center;
+            // background-color: #b3d4fc;
+            border: 1px solid #0099e8;
+            color: #fff;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            a {
+              text-decoration: none;
+              color: #0099e8;
+              }
+              .right-header_sign-up:hover {
+              background-color: #0099e8;
+            }
+          }
+        }
+      }
+    }
+  }
+}
