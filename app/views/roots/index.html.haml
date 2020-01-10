@@ -1,9 +1,16 @@
 .wrapper
+  = render 'roots/header'
+  %body
+    -# - breadcrumb :root
+  .body_main
+    %div.slick
+      %div
+        -# = image_tag ("https://www.mercari.com/jp/assets/img/common/jp/top/banner-camp.jpg") ,class:'slide-image'
+      %div
+        -# = image_tag ("https://www.mercari.com/jp/assets/img/common/jp/top/banner-natsukashi.jpg"),class:'slide-image'
+      %div
+        -# = image_tag ("slick_image4.png"),class:'slide-image'
 
-= render 'roots/header'
-
-
--#midle-contennt
     .product-container
       %h2.product-container_title
         ピックアップカテゴリー
@@ -84,7 +91,6 @@
           全ての商品を見る
 
 
-
-= render 'roots/footer'
-= render 'roots/footer2'
-= render 'roots/footer3'
+    = render 'roots/footer'
+    = render 'roots/footer2'
+    = render 'roots/footer3'
