@@ -10,85 +10,100 @@
         -# = image_tag ("https://www.mercari.com/jp/assets/img/common/jp/top/banner-natsukashi.jpg"),class:'slide-image'
       %div
         -# = image_tag ("slick_image4.png"),class:'slide-image'
-
+    .product-header
+      ピックアップカテゴリー
     .product-container
-      %h2.product-container_title
-        ピックアップカテゴリー
       .product-container_box__clearfix
-        .text_place 
-          レディース 新着アイテム
+        .text_place
+          .text_place__left
+            レディース 新着アイテム
+          .text_place__right
+            全ての商品を見る
         .product-container_contents__box-clearfix
           -# - @ladies.each do |product|
             -# = render 'item-card', product: product
-        .view-more
-          全ての商品を見る
+        
 
       .product-container_box__clearfix
-        .text_place 
-          メンズ 新着アイテム
+        .text_place
+          .text_place__left
+            メンズ 新着アイテム
+          .text_place__right
+            全ての商品を見る
+          
         .product-container_contents__box-clearfix
           -# - @mens.each do |product|
             -# = render 'item-card', product: product
-        .view-more
-          全ての商品を見る
 
       .product-container_box__clearfix
-        .text_place 
-          ベビー・キッズ 新着アイテム
+        .text_place
+          .text_place__left
+            ベビー・キッズ 新着アイテム
+          .text_place__right
+            全ての商品を見る
+          
         .product-container_contents__box-clearfix
           -# - @kids.each do |product|
             -# = render 'item-card', product: product
-        .view-more
-          全ての商品を見る
+     
 
       .product-container_box__clearfix
-        .text_place 
-          コスメ・香水・美容 新着アイテム
+        .text_place
+          .text_place__left
+            コスメ・香水・美容 新着アイテム
+          .text_place__right
+            全ての商品を見る
+          
         .product-container_contents__box-clearfix
           -# - @cosmetics.each do |product|
             -# = render 'item-card', product: product
-        .view-more
-          全ての商品を見る
+
+    .product-header
+      ピックアップブランド
     .product-container
-
-      %h2.product-container_title
-        ピックアップブランド
-
       .product-container_box__clearfix
-        .text_place 
-          シャネル 新着アイテム
+        .text_place
+          .text_place__left
+            シャネル 新着アイテム
+          .text_place__right
+            全ての商品を見る
+          
         .product-container_contents__box-clearfix
           -# - @chanel.each do |product|
             -# = render 'item-card', product: product
-        .view-more
-          全ての商品を見る
 
       .product-container_box__clearfix
-        .text_place 
-          ルイ ヴィトン 新着アイテム
+        .text_place
+          .text_place__left
+            ルイ ヴィトン 新着アイテム
+          .text_place__right
+            全ての商品を見る
+          
         .product-container_contents__box-clearfix
           -# - @loisvuitton.each do |product|
             -# = render 'item-card', product: product
-        .view-more
-          全ての商品を見る
 
       .product-container_box__clearfix
-        .text_place 
-          シュプリーム 新着アイテム
+        .text_place
+          .text_place__left
+            シュプリーム 新着アイテム
+          .text_place__right
+            全ての商品を見る
+          
         .product-container_contents__box-clearfix
           -# - @supreme.each do |product|
             -# = render 'item-card', product: product
-        .view-more
-          全ての商品を見る
 
       .product-container_box__clearfix
-        .text_place 
-          ナイキ 新着アイテム
+        .text_place
+          .text_place__left
+            ナイキ 新着アイテム
+          .text_place__right
+            全ての商品を見る
+          
         .product-container_contents__box-clearfix
           -# - @nike.each do |product|
             -# = render 'item-card', product: product
-        .view-more
-          全ての商品を見る
 
 
     .product-footer_image
