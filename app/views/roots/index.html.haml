@@ -1,0 +1,114 @@
+.wrapper
+  = render 'roots/header'
+  %body
+    -# - breadcrumb :root
+  .body_main
+    %div.slick
+      %div
+        = image_tag "heidi-fin-2TLREZi7BUg-unsplash.jpg", class: "slide-image"
+      %div
+        -# = image_tag ("https://www.mercari.com/jp/assets/img/common/jp/top/banner-natsukashi.jpg"),class:'slide-image'
+      %div
+        -# = image_tag ("slick_image4.png"),class:'slide-image'
+    .product-header
+      ピックアップカテゴリー
+    .product-container
+      .product-container_box__clearfix
+        .text_place
+          .text_place__left
+            レディース 新着アイテム
+          .text_place__right
+            もっと見る
+        .product-container_contents__box-clearfix
+          -# - @ladies.each do |product|
+            -# = render 'item-card', product: product
+        
+
+      .product-container_box__clearfix
+        .text_place
+          .text_place__left
+            メンズ 新着アイテム
+          .text_place__right
+            もっと見る
+          
+        .product-container_contents__box-clearfix
+          -# - @mens.each do |product|
+            -# = render 'item-card', product: product
+
+      .product-container_box__clearfix
+        .text_place
+          .text_place__left
+            ベビー・キッズ 新着アイテム
+          .text_place__right
+            もっと見る
+          
+        .product-container_contents__box-clearfix
+          -# - @kids.each do |product|
+            -# = render 'item-card', product: product
+     
+
+      .product-container_box__clearfix
+        .text_place
+          .text_place__left
+            コスメ・香水・美容 新着アイテム
+          .text_place__right
+            もっと見る
+          
+        .product-container_contents__box-clearfix
+          -# - @cosmetics.each do |product|
+            -# = render 'item-card', product: product
+
+    .product-header
+      ピックアップブランド
+    .product-container
+      .product-container_box__clearfix
+        .text_place
+          .text_place__left
+            シャネル 新着アイテム
+          .text_place__right
+            もっと見る
+          
+        .product-container_contents__box-clearfix
+          -# - @chanel.each do |product|
+            -# = render 'item-card', product: product
+
+      .product-container_box__clearfix
+        .text_place
+          .text_place__left
+            ルイ ヴィトン 新着アイテム
+          .text_place__right
+            もっと見る
+          
+        .product-container_contents__box-clearfix
+          -# - @loisvuitton.each do |product|
+            -# = render 'item-card', product: product
+
+      .product-container_box__clearfix
+        .text_place
+          .text_place__left
+            シュプリーム 新着アイテム
+          .text_place__right
+            もっと見る
+          
+        .product-container_contents__box-clearfix
+          -# - @supreme.each do |product|
+            -# = render 'item-card', product: product
+
+      .product-container_box__clearfix
+        .text_place
+          .text_place__left
+            ナイキ 新着アイテム
+          .text_place__right
+            もっと見る
+          
+        .product-container_contents__box-clearfix
+          -# - @nike.each do |product|
+            -# = render 'item-card', product: product
+
+
+    .product-footer_image
+      = image_tag "heidi-fin-2TLREZi7BUg-unsplash.jpg", class: "footer-image"
+
+    = render 'roots/footer'
+    = render 'roots/footer2'
+    = render 'roots/footer3'
