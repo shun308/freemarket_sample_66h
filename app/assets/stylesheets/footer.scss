@@ -1,0 +1,87 @@
+.all_footer{
+  box-sizing:border-box;
+  background-color: rgb(34,34,34);
+  color:rgb(255,255,255);
+  min-width:1020px;
+  min-height:300px;
+  font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+
+}
+
+  .clearfix{
+    margin:0 auto;
+    display:flex;
+    width:1020px;
+
+
+  .footer_infomation{
+    padding-top:18px;
+    padding-right:20px;
+    width: 25%;
+    text-align:left;
+  }
+
+    .match{
+      width: 45%;
+      padding-right: 20px;
+      }
+      
+      .part_footer_infomation:last-child ul{
+        padding-left:10px;
+      }
+
+      .part_footer_infomation{
+        width:50%;
+        float: left;
+      }
+    ul{
+      padding-top:15px;
+    }
+
+    h2{
+      font-size: 16px;
+      font-weight: 100;
+    }
+
+
+      .footer{
+        font-size: 12px;
+        line-height: 2.5em;
+        color:#BCBCBC;
+      }
+    
+
+     .link{
+       color:#BCBCBC;
+       text-decoration-line: none;
+     }
+
+     .sns_icon{
+      margin-top: 16px;
+      font-size: 25px;
+      color: white;
+      margin-right: 20px;
+     }
+    }
+  .footer_bottom{
+    height: 80px;
+    width:1020px;
+    margin:0 auto;
+
+    .cls-1{
+      height: 50px;
+      width: 130px;
+      display:inline-block;
+      padding-top:20px;
+      
+    }
+  }
+  .copyright{
+    display:inline-block;
+    width: calc(100% - 270px);
+    text-align: center;
+    font-size: 12px;
+  }
+
+
+
