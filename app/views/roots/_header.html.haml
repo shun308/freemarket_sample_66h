@@ -2,13 +2,11 @@
   .header_inner
     .header_inner_top
       %h1.logo
-        -#=link_to root_path do
+        
         = image_tag "fmarket_logo_red.svg"
 
       .header_form
-        -# .header_form__textfield 何かお探しですか？
-        -# url: search_product_path
-        -#= form_tag search_path, method: :post do
+        
         %input.header_form__textfield{name: "keyword", placeholder: "  何かお探しですか？", type: "text", value: ""}
         %button.search-icon
           %i.fas.fa-search.loupe-icon
@@ -16,15 +14,13 @@
       .left-contents
         .left-contents_search-nav
           %li.category_nav
-            -# = link_to 'カテゴリーから探す' category_path do
-            -# link先実装後にlink化します
+            
             .category_text
               カテゴリーから探す
             .category_icon
               %i.fas.fa-list-ul.border-icon
           %li.brand_nav
-            -# = link_to  'ブランドから探す' brand_path do
-            -# link先実装後にlink化します
+            
             .brand_text
               ブランドから探す
             .brand_icon
