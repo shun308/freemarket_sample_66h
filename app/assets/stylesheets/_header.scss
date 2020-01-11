@@ -27,11 +27,10 @@
         border: solid 1px rgb(202, 202, 202);
         background-color: rgb(243, 243, 243);
         float: right;
+        padding-left: 10px;
         &__textfield {
           height: 40px;
           width: 790px;
-          padding-left: 20px;
-          opacity: 0.5;
           line-height: 40px;
           float: left;
         }
@@ -54,7 +53,6 @@
           background-color: rgb(243, 243, 243);
           .loupe-icon {
             font-size: 16px;
-            opacity: 0.5;
           }
         }
       }
@@ -77,6 +75,7 @@
             width: 150px;
             display: inline-block;
             padding: 6px;
+            cursor: pointer;
             .category_text {
               font-size: 14px;
               float: right;
@@ -99,6 +98,7 @@
             width: 140px;
             display: inline-block;
             padding: 6px;
+            cursor: pointer;
             .brand_text {
               font-size: 14px;
               float: right;
