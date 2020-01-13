@@ -7,7 +7,7 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :products, dependent: :destroy
   has_many :likes
-  has_many :snss
+  has_many :sns
   has_many :tradings
   has_one :creditcard
   has_one :profile
