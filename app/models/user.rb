@@ -12,5 +12,5 @@ class User < ApplicationRecord
   has_one :creditcard
   has_one :profile
   accepts_nested_attributes_for :profile
-  #validates :nickname, presence: true
+  validates :nickname, presence: true
 end
