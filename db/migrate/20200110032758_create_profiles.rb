@@ -4,6 +4,7 @@ class CreateProfiles < ActiveRecord::Migration[5.2]
       t.text        :body
       t.string      :image
       t.string      :first_name, null: false
+      t.string      :last_name, null: false
       t.string      :first_name_kana, null: false
       t.string      :last_name_kana, null: false
       t.integer     :birth_year, null: false
