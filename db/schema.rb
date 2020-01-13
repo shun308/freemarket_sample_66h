@@ -122,6 +122,7 @@ ActiveRecord::Schema.define(version: 2020_01_13_032028) do
     t.text "body"
     t.string "image"
     t.string "first_name", null: false
+    t.string "last_name", null: false
     t.string "first_name_kana", null: false
     t.string "last_name_kana", null: false
     t.integer "birth_year", null: false
@@ -155,7 +156,6 @@ ActiveRecord::Schema.define(version: 2020_01_13_032028) do
   end
 
   create_table "sns", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.text "token", null: false
     t.string "uid", null: false
     t.string "provider"
     t.bigint "user_id", null: false
