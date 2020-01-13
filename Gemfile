@@ -73,7 +73,7 @@ gem 'font-awesome-sass'
 gem "haml-rails"
 gem 'devise'
 
-gem 'omniauth'
+# gem 'omniauth' 200113 del
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
 gem 'dotenv-rails'
