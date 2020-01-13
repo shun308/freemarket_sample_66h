@@ -37,11 +37,11 @@ describe User do
     end
 
     # 6. nicknameが7文字以上であれば登録できないこと
-    # it "is invalid with a nickname that has more than 7 characters " do
-    #   user = build(:user, nickname: "aaaaaaaa")
-    #   user.valid?
-    #   expect(user.errors[:nickname]).to include "is too long (maximum is 6 characters)"
-    # end
+    it "is invalid with a nickname that has more than 7 characters " do
+      user = build(:user, nickname: "aaaaaaaa")
+      user.valid?
+      expect(user.errors[:nickname]).to include "is too long (maximum is 6 characters)"
+    end
 
     # 7. nicknameが6文字以下では登録できること
     it "is valid with a nickname that has less than 6 characters " do
