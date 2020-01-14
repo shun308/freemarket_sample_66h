@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
   
+  get 'address/index'
+  get 'address/create'
+  get 'address/new'
+  get 'address/edit'
+  get 'address/update'
   devise_for :users
 
   devise_scope :user do
