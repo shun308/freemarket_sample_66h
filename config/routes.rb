@@ -1,10 +1,4 @@
 Rails.application.routes.draw do
-  
-  get 'address/index'
-  get 'address/create'
-  get 'address/new'
-  get 'address/edit'
-  get 'address/update'
   devise_for :users, controllers: { registrations: 'users/registrations' }
 
   devise_scope :user do
@@ -16,6 +10,12 @@ Rails.application.routes.draw do
     get    'signup',                to: 'users/registrations#index'
     get    'signup/registration',   to: 'users/registrations#new'
   end
+  
+  get 'address/index'
+  get 'address/create'
+  get 'address/new'
+  get 'address/edit'
+  get 'address/update'
 
   root 'roots#index'
 
