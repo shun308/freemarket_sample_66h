@@ -1,8 +1,8 @@
 class Profile < ApplicationRecord
-  belongs_to :user
+  belongs_to :user, optional: true
   with_options presence: true do
     validates :first_name
-    # validates :last_name
+    validates :last_name
     validates :first_name_kana
     validates :last_name_kana
     validates :birth_year

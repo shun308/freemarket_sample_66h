@@ -8,6 +8,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def new
     @user = User.new
     @profile = @user.build_profile
+    # binding.pry
+    # @user.save!
   end
 
   # POST /resource
@@ -44,13 +46,18 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # If you have extra params to permit, append them to the sanitizer.
   def configure_sign_up_params
     devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname, profile_attributes:[:first_name, :last_name, :first_name_kana, :last_name_kana, :birth_year, :birth_month, :birth_day]])
+    # params.require(:request_form).permit(:shop_id, :product_id, :products_status_id, :zip_file_id, :shipping_address_id,
+    #   delivery_addresses_attributes:[:id,:address_no, :tel_no]
+    # )
+    # , profile_attributes:[:first_name, :last_name, :first_name_kana, :last_name_kana, :birth_year, :birth_month, :birth_day]
   end
+
 
 
 
   # The path used after sign up.
   def after_sign_up_path_for(resource)
-    mypage_path
+    root_path
   end
 
   # The path used after sign up for inactive accounts.

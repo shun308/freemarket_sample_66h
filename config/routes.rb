@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get 'address/new'
   get 'address/edit'
   get 'address/update'
-  devise_for :users
+  devise_for :users, controllers: { registrations: 'users/registrations' }
 
   devise_scope :user do
     # ログイン・ログアウト
