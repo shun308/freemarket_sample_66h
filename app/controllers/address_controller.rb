@@ -4,23 +4,26 @@ class AddressController < ApplicationController
   # end
 
   def new
-    # @adresse = Adresse.new
+   @adresse = Adresse.new
   end
 
 
   def create
-    # adresse.create(adresse_params)
+    Adresse.create(adresse_params)
+    # redirect_to
   end
 
   def edit
+    @change = Adresse.find(params[:id])
   end
 
   def update
+    @change.update(adresse_params)
   end
   
   private
   def adresse_params
-    # params.require(:adresse).permit(:zipcode, :prefecture, :text)
+    params.require(:adresse).permit(:zipcode, :prefecture, :city, :district, :building)
   end
 
 end
