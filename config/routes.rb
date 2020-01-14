@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   root 'roots#index'
 
   resources :address, except: :show
+  resources :profiles, only: [:update, :edit]
 
   resources :products
 
