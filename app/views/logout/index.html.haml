@@ -1,0 +1,14 @@
+= render 'roots/header'
+
+-# サイドのメニュー一覧を表示
+.mypage-box
+  %main.my-containercleanfix
+    -# = render 'mypage/mypage-side'
+    .logout
+      .logout_form
+        .logout_form_ditail
+          = link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'logout_btn'
+
+= render 'roots/footer'
+= render 'roots/footer3'
+
