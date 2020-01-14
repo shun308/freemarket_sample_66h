@@ -1,11 +1,9 @@
 .wrapper
   
-  - breadcrumb :edit
-  
   .main-container
     .main-container_contents
       .left-contents
-        = render 'mypage/mypage-side'
+        -# = render 'mypage/mypage-side'
       .right-contents
         %h2.contents-header
           本人情報の登録
@@ -51,6 +49,6 @@
                 =link_to '#', class:'delete-deco' do
                   本人情報の登録について
                 = fa_icon 'chevron-right', class: 'arrow-right-icon'
-  = render 'root/aside'
-  = render 'root/footer'
+  -# = render 'root/aside'
+  -# = render 'root/footer'
   
