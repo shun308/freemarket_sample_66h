@@ -14,8 +14,10 @@ Rails.application.routes.draw do
 
   root 'roots#index'
 
-  resources :address, except: :show
+  resources :address, except: [:show, :destroy]
   resources :profiles, only: [:update, :edit]
+  resources :mypages, only: :index
+  resources :logout, only: :index
 
   resources :products
 
