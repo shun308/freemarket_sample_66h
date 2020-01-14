@@ -23,6 +23,7 @@ Rails.application.routes.draw do
   resources :profiles, only: [:update, :edit]
   resources :mypages, only: :index
   resources :logout, only: :index
+  resources :dones, only: :index
 
   resources :products
 
