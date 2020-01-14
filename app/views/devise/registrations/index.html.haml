@@ -7,10 +7,12 @@
       .sign-up-container-main
         .sign-up-container-main-content
           =link_to signup_registration_path, class: "sign-up-container-main-content_mail" do
-            %i.fas.fa-envelope.sign-up-container-main-content_mail_icon, text: "メールアドレスで登録"
-
-            %i.fas.fa-facebook-square.sign-up-container-main-content_facebook_icon, text: "FaceBookで登録"
-
-            %i.fas.fa-google.sign-up-container-main-content_google_icon, text: "Googleで登録"
-
+            .sign-up-container-main-content_mail_icon.fas.fa-envelope
+            　　　　　　メールアドレスで登録する
+          .sign-up-container-main-content_facebook
+            .sign-up-container-main-content_facebook_icon.fab.fa-facebook-square
+            　　　　　　FaceBookで登録する
+          .sign-up-container-main-content_google
+            .sign-up-container-main-content_google_icon.fab.fa-google
+            　　　　　　Googleで登録する
   = render "shared/simple-footer"
