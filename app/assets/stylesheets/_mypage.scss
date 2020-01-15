@@ -1,0 +1,124 @@
+.wrapper{
+  height: 100vh;
+  .maypage-content{
+    margin: 40px auto 0;
+    width: 1020px;
+
+    // 画面右側
+    &__right{
+      background-color: #fff;
+      width: 700px;
+      float: right;
+      &__icon{
+        background-image: url(img_cliants03.png);
+        height: 200px;
+        position: relative;
+        padding: 40px;
+        background-size: cover;
+        text-align: center;
+        &__image{
+          margin: 0 auto;
+        }
+        &__name{
+          text-decoration: none;
+        }       
+      }
+
+      .tab-content{
+        background-repeat: no-repeat;
+        margin: 0;
+        padding: 0;
+        height: 493px;
+    
+        .mypage-item-list{
+          height: 493px;
+          
+          &_links{
+    
+            border-bottom: 1px solid #eee;
+            height: 80px;
+            .mypage-item-list_link{
+              position: relative;
+              display: block;
+              height: 48px;
+              padding: 16px;
+              color: #333;
+              text-decoration: none;
+              .news-size-icon{
+                height: 48px;
+                float: left;
+              }
+              .mypage-item-news{
+                margin: 0 40px 0 68px;
+                &_text{
+                  font-size: 14px;
+                }
+                &_time{
+                  display: inline-block;
+                  color: #888;
+                  font-size: 14px;
+                  .icon-time{
+                    color: #888;
+                    font-size: 14px;
+                    height: 16px;
+                    width: 16px;
+                  }
+                }
+              }
+            }
+          }
+          .mypage-go-list{
+            display: block;
+            height: 56px;
+            margin: 0 auto;
+            background: rgb(233, 232, 232);
+            line-height: 56px;
+            text-align: center;
+            &__link{
+              text-decoration: none;
+              color: black;
+            }
+          }
+        }
+      }
+    }
+
+
+      // マイページ左側
+    .mypage-nav{
+      float: left;
+      width: 280px;
+      margin: 0 40px 0 0;
+      &__box{
+        &__list{
+          #mypage-nav__box__list__top{
+            text-decoration: none;
+            background: #eee;
+            position: relative;
+            padding: 16px;
+            display: block;
+            font-weight: 600;
+            color: #333;
+          }
+          &__item{
+            border: solid #eee 1px;
+            text-decoration: none;
+            position: relative;
+            padding: 16px;
+            display: block;
+            font-size: 14px;
+            background: #fff;
+            color: #333;
+          }
+          .mypage-nav__box__list__item:hover{
+            background: #eee;
+          }
+        }
+        .mypage-nav__box__head{
+          padding: 40px 0 0;
+        }
+      }
+    }
+  }
+}
+
