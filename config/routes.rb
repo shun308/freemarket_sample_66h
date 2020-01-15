@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   resources :mypages, only: :index
   resources :logout, only: :index
   resources :dones, only: :index
+  resources :identifications, only:[:update, :edit]
 
   resources :products
 
