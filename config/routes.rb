@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'mypages/index'
   devise_for :users, controllers: { registrations: 'users/registrations' }
 
   devise_scope :user do
@@ -11,19 +10,18 @@ Rails.application.routes.draw do
     get    'signup',                to: 'users/registrations#index'
     get    'signup/registration',   to: 'users/registrations#new'
   end
+
+  root 'roots#index'
   
   get   'profile',               to: 'profiles#edit'
   patch 'profile',               to: 'profiles#update'
-
-  root 'roots#index'
+  resources :profiles, only: [:update, :edit]
 
   resources :address, except: [:show, :destroy]
-  resources :profiles, only: [:update, :edit]
-  resources :mypages, only: :index
+  resources :mypages, only: :show
   resources :logout, only: :index
   resources :dones, only: :index
   resources :identifications, only:[:update, :edit]
-
   resources :products
 
 end
