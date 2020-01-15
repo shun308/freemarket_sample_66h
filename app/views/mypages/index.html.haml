@@ -1,16 +1,18 @@
+= render 'roots/header'
 .wrapper
   .maypage-content
 
+    = render 'shared/mypage-nav'
     -# 画面右側の個人情報
     %main.maypage-content__right
       %section.maypage-content__right__icon
-        = image_tag "fmarket_logo_red.svg", class:"maypage-content__right__icon__image", size: '50x50'
+        = image_tag "joey-nicotra-aQSPWSxCweY-unsplash", class:"maypage-content__right__icon__image", size: '50x50'
         = link_to "荻野","https://www.mercari.com/jp/", { :class => "maypage-content__right__icon__name" }
       %section.mypage-tab_container_notification-todo
         %ul.mypage-tabs
           %li.mypage-tabs_2
             = link_to 'お知らせ', '#', class: "mypage-tabs_2_notification"
-          %li.mypage-tabs_2
+          %li.mypage-tabs_3
             = link_to 'やることリスト', '#', class: "mypage-tabs_2_todo"
 
         .tab-content
@@ -71,9 +73,10 @@
                     %span ２日前
                 -# = fa_icon "chevron-right", class: "news-arrow-icon"
 
-
-            %li.mypage-go-list
-              = link_to '一覧を見る','#',class: "mypage-go-list__link"
-
-
-    = render 'shared/mypage-nav'
+            .footer-mypage
+              %li.mypage-go-list
+                = link_to '一覧を見る','#',class: "mypage-go-list__link"
+= render 'roots/footer'
+= render 'roots/footer2'
+= render 'roots/footer3'
+    

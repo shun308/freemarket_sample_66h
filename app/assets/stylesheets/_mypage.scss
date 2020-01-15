@@ -1,7 +1,10 @@
 .wrapper{
-  height: 100vh;
+  height: 1400px;
+  width: 100vw;
   .maypage-content{
-    margin: 40px auto 0;
+    // margin: 40px auto 0;
+    margin: 0 200px;
+    padding-top: 30px;
     width: 1020px;
 
     // 画面右側
@@ -10,7 +13,7 @@
       width: 700px;
       float: right;
       &__icon{
-        background-image: url(img_cliants03.png);
+        background-image: url(heidi-fin-2TLREZi7BUg-unsplash.jpg);
         height: 200px;
         position: relative;
         padding: 40px;
@@ -18,9 +21,14 @@
         text-align: center;
         &__image{
           margin: 0 auto;
+          padding-top: 60px;
         }
         &__name{
           text-decoration: none;
+          color: black;
+          // background-color: red;
+          // padding-top: 30px;
+          display: block;
         }       
       }
 
@@ -68,10 +76,12 @@
             }
           }
           .mypage-go-list{
+            margin-top: 15px;
+            // padding-left: 20px;
             display: block;
             height: 56px;
-            margin: 0 auto;
-            background: rgb(233, 232, 232);
+            // margin: 0 auto;
+            background-color: rgb(233, 232, 232);
             line-height: 56px;
             text-align: center;
             &__link{
@@ -83,6 +93,76 @@
       }
     }
 
+    .mypage-tab_container_notification-todo{
+      margin: 0;
+      height: 567px;
+      background-color:white;
+      .mypage-tabs{
+        border: 0;
+        font-size: 0;
+        &_2{
+          width: 50%;
+          display: inline-block;
+          text-align: center;
+          vertical-align: top;
+          // border-top: 2px solid #ea352d;
+    
+    
+            &_notification{
+              text-decoration: none;
+              position: relative;
+              display: block;
+              color: #333;
+              font-size: 16px;
+              line-height: 74px;
+              background: #eee;
+    
+            }
+            &_todo{
+              text-decoration: none;
+              position: relative;
+              display: block;
+              color: #333;
+              font-size: 16px;
+              line-height: 74px;
+    
+            }
+        }
+        &_3{
+          width: 50%;
+          display: inline-block;
+          text-align: center;
+          vertical-align: top;
+          border-top: 2px solid #ea352d;
+    
+    
+            &_notification{
+              text-decoration: none;
+              position: relative;
+              display: block;
+              color: #333;
+              font-size: 16px;
+              line-height: 74px;
+              background: #eee;
+    
+            }
+            &_todo{
+              text-decoration: none;
+              position: relative;
+              display: block;
+              color: #333;
+              font-size: 16px;
+              line-height: 74px;
+    
+            }
+        }
+
+      }
+    }
+
+    .footer-mypage {
+      padding: 0 20px;
+    }
 
       // マイページ左側
     .mypage-nav{
@@ -121,4 +201,3 @@
     }
   }
 }
-
