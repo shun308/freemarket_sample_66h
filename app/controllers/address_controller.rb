@@ -21,7 +21,11 @@ class AddressController < ApplicationController
   end
 
   def update
-    @adresse.update(adresse_params)
+    if Adresse.find(params[:id])update(adresse_params)
+      redirect_to root_path
+    else
+      flash.now[:alert] = "入力内容を確認してください"
+    end
   end
   
   private
