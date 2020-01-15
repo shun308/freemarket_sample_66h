@@ -43,7 +43,7 @@
                 -# %i= fa_icon 'check-circle', class: 'check-icon icon fa-fw'
                 %i.fas.fa-check-circle.check-icon
             %li.right-header_mypage-link
-              = link_to 'マイページ', '#', style:'text-decoration:none;color:#333333', class:'right-header_mypage-link_text'
+              = link_to 'マイページ', "/mypages/#{current_user.id}", style:'text-decoration:none;color:#333333', class:'right-header_mypage-link_text'
               .right-header_mypage-link_icon
                 -# %i=.fas fa_icon 'user-circle', class:'user-icon icon fa-fw'
                 %i.fas.fa-user-circle.user-icon
