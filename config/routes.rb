@@ -14,10 +14,7 @@ Rails.application.routes.draw do
 
   root 'roots#index'
   
-  get   'profile',               to: 'profiles#edit'
-  patch 'profile',               to: 'profiles#update'
   resources :profiles, only: [:update, :edit]
-
   resources :address, except: [:show, :destroy]
   resources :creditcards, only: [:index, :new] do
     collection do
