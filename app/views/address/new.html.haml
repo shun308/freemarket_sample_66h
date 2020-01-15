@@ -6,7 +6,7 @@
         %h2.contents-header
           住所入力
         .contents-inner
-     
+    
           - if true
             %divs
             = form_for @adresse, url: { controller: :address, action: :create } do |adresse|
@@ -29,7 +29,7 @@
               .form-area
                 %label 都道府県
                 %span.form-area__tag 必須
-                = adresse.text_field :prefecture, class: 'input-default', placeholder: "例) 愛知県"
+                = adresse.select :prefecture, Adresse.prefectures.keys,{}, class:"select-place"
               .form-area
                 %label 市区町村
                 %span.form-area__tag 必須

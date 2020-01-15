@@ -9,6 +9,7 @@ class AddressController < ApplicationController
 
 
   def create
+    binding.pry
     Adresse.create(adresse_params)
     # redirect_to
   end
