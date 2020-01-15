@@ -11,7 +11,7 @@ class AddressController < ApplicationController
   def create
     @adresse = Adresse.new(adresse_params)
     if @adresse.save
-      redirect_to dones_path
+      redirect_to new_creditcard_path
     else
       flash.now[:alert] = "入力内容を確認してください"
     end
