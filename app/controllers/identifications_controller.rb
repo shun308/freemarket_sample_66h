@@ -7,9 +7,9 @@ class IdentificationsController < ApplicationController
 
   def update
     if Profile.find(params[:id]).update(identification_params)
-      redirect_to root_path
+      redirect_to root_path 
     else
-      flash.now[:alert] = "入力内容を確認してください"
+      flash.now[:alert] = "住所の変更は、メルカリアプリの「マイページ＞個人情報設定＞本人情報＞氏名・生年月日」から行ってください。"
     end
   end
 
