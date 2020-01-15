@@ -18,6 +18,9 @@ Rails.application.routes.draw do
   get 'address/edit'
   get 'address/update'
 
+  get   'profile',               to: 'profiles#edit'
+  patch 'profile',               to: 'profiles#update'
+
   root 'roots#index'
 
   resources :address, except: [:show, :destroy]
