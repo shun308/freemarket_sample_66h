@@ -1,0 +1,51 @@
+= render "roots/header" 
+
+.mypage-box
+  %main.my-containercleanfix
+    -#= render 'mypage/mypage-side'
+    .right-contents
+      %h2.contents-header
+        本人情報の登録
+      .contents-inner
+        - if current_user.profile.present?
+          = form_for current_user.profile, url: { controller: :identifications, action: :update } do |identification_form|
+            %div
+              %p
+                お客さまの本人情報をご登録ください。
+                %br
+                登録されたお名前・生年月日を変更する場合、本人確認書類の提出が必要になります。
+              %p.text-top
+                =link_to '#', class: 'delete-deco' do
+                  本人確認書類のアップロードについて>
+            .form-area
+              %label お名前
+              %p #{current_user.profile.last_name}#{current_user.profile.first_name}
+            .form-area
+              %label お名前カナ
+              %p #{current_user.profile.last_name_kana}#{current_user.profile.first_name_kana}
+            .form-area
+              %label 生年月日
+              %p #{current_user.profile.birth_year}/#{current_user.profile.birth_month}/#{current_user.profile.birth_day}
+            .form-area
+              %label 郵便番号
+              = identification_form.text_field :living_code, class:"input-default", placeholder: "例) 1234567"
+            .form-area
+              %label 都道府県
+              = identification_form.select :living_state, Profile.living_states.keys,{}, class:"select-place"
+            .form-area
+              %label 市区町村
+              = identification_form.text_field :living_city, class:"input-default", placeholder: "例) 東京都"
+            .form-area
+              %label 番地
+              = identification_form.text_field :living_number, class:"input-default", placeholder: "例) 道玄坂1-1-1"
+            .form-area
+              %label 建物名
+              = identification_form.text_field :living_building, class:"input-default", placeholder: "例) 青木荘 101号室"
+            = identification_form.submit "登録する", class: "btn-update btn-red"
+            .text-bottom
+              =link_to '#', class:'delete-deco' do
+                本人情報の登録について
+
+= render 'roots/footer'
+= render 'roots/footer2'
+= render 'roots/footer3'
