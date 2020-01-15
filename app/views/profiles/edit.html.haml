@@ -1,7 +1,7 @@
 = render 'roots/header'
 .mypage-box
   %main.my-containercleanfix
-    -#= render 'mypage/mypage-side'
+    = render 'shared/mypage-nav'
     .container
       %section.chapter-container
         %h2.profile-head プロフィール
@@ -17,5 +17,5 @@
                 %input{name: "after_save_callback", type: "hidden", value: "https://www.mercari.com/jp/mypage/profile/"}/
                 = profile_form.submit "変更する", class:"btn-default btn-red"
           
-  = render 'roots/footer'
-  = render 'roots/footer3'
+= render 'roots/footer'
+= render 'roots/footer3'
