@@ -2,12 +2,10 @@
   height: 1400px;
   width: 100vw;
   .maypage-content{
-    // margin: 40px auto 0;
     margin: 0 200px;
     padding-top: 30px;
     width: 1020px;
 
-    // 画面右側
     &__right{
       background-color: #fff;
       width: 700px;
@@ -26,8 +24,6 @@
         &__name{
           text-decoration: none;
           color: black;
-          // background-color: red;
-          // padding-top: 30px;
           display: block;
         }       
       }
@@ -77,10 +73,8 @@
           }
           .mypage-go-list{
             margin-top: 15px;
-            // padding-left: 20px;
             display: block;
             height: 56px;
-            // margin: 0 auto;
             background-color: rgb(233, 232, 232);
             line-height: 56px;
             text-align: center;
@@ -105,7 +99,6 @@
           display: inline-block;
           text-align: center;
           vertical-align: top;
-          // border-top: 2px solid #ea352d;
     
     
             &_notification{
