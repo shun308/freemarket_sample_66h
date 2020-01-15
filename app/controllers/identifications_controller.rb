@@ -6,13 +6,10 @@ class IdentificationsController < ApplicationController
   end
 
   def update
-    @profile = Profile.update(profile_params)
-    # if current_user.profile.update(profile_params)
-      # redirect_to action: :edit
-    if @profile.save
+    if Profile.find(params[:id]).update(identification_params)
       redirect_to root_path
     else
-      flash.now[:alert] = "tjkl"
+      flash.now[:alert] = "入力内容を確認してください"
     end
   end
 
