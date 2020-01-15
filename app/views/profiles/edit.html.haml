@@ -1,3 +1,4 @@
+= render 'roots/header'
 .mypage-box
   %main.my-containercleanfix
     -#= render 'mypage/mypage-side'
@@ -16,6 +17,5 @@
                 %input{name: "after_save_callback", type: "hidden", value: "https://www.mercari.com/jp/mypage/profile/"}/
                 = profile_form.submit "変更する", class:"btn-default btn-red"
           
-    = render 'roots/footer'
-    = render 'roots/footer2'
-    = render 'roots/footer3'
+  = render 'roots/footer'
+  = render 'roots/footer3'
