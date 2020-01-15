@@ -9,8 +9,12 @@ class AddressController < ApplicationController
 
 
   def create
-    Adresse.create(adresse_params)
-    redirect_to dones_path
+    @adresse = Adresse.new(adresse_params)
+    if @adresse.save
+      redirect_to dones_path
+    else
+      flash.now[:alert] = "入力内容を確認してください"
+    end
   end
 
   def edit
