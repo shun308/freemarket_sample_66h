@@ -164,40 +164,5 @@
       padding: 0 20px;
     }
 
-      // マイページ左側
-    .mypage-nav{
-      float: left;
-      width: 280px;
-      margin: 0 40px 0 0;
-      &__box{
-        &__list{
-          #mypage-nav__box__list__top{
-            text-decoration: none;
-            background: #eee;
-            position: relative;
-            padding: 16px;
-            display: block;
-            font-weight: 600;
-            color: #333;
-          }
-          &__item{
-            border: solid #eee 1px;
-            text-decoration: none;
-            position: relative;
-            padding: 16px;
-            display: block;
-            font-size: 14px;
-            background: #fff;
-            color: #333;
-          }
-          .mypage-nav__box__list__item:hover{
-            background: #eee;
-          }
-        }
-        .mypage-nav__box__head{
-          padding: 40px 0 0;
-        }
-      }
-    }
   }
 }

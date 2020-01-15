@@ -3,7 +3,8 @@
 -# サイドのメニュー一覧を表示
 .mypage-box
   %main.my-containercleanfix
-    -# = render 'mypage/mypage-side'
+    .mypage-left_nav
+      = render 'shared/mypage-nav'
     .logout
       .logout_form
         .logout_form_ditail
