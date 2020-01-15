@@ -1,0 +1,79 @@
+.wrapper
+  .maypage-content
+
+    -# 画面右側の個人情報
+    %main.maypage-content__right
+      %section.maypage-content__right__icon
+        = image_tag "fmarket_logo_red.svg", class:"maypage-content__right__icon__image", size: '50x50'
+        = link_to "荻野","https://www.mercari.com/jp/", { :class => "maypage-content__right__icon__name" }
+      %section.mypage-tab_container_notification-todo
+        %ul.mypage-tabs
+          %li.mypage-tabs_2
+            = link_to 'お知らせ', '#', class: "mypage-tabs_2_notification"
+          %li.mypage-tabs_2
+            = link_to 'やることリスト', '#', class: "mypage-tabs_2_todo"
+
+        .tab-content
+          %ul#tab-content-notification.mypage-item-list
+            -# %li(お知らせを配列で)
+            %li.mypage-item-list_links
+              -# %a{href: '#', class: "mypage-item-list_link",data_open: "model",data_model: "banner"}
+              = link_to '#', class: "mypage-item-list_link" do
+                %img{alt: "" ,src:"//static.mercdn.net/images/mercari_profile.png",class: "news-size-icon",data_src:"//static.mercdn.net/images/mercari_profile.png"}
+                .mypage-item-news
+                  .mypage-item-news_text お知らせ①
+                  .mypage-item-news_time
+                    -# = fa_icon "history", class: "icon-time"
+                    %span ２日前
+                -# = fa_icon "chevron-right", class: "news-arrow-icon"
+
+            %li.mypage-item-list_links
+              -# %a{href: '#', class: "mypage-item-list_link",data_open: "model",data_model: "banner"}
+              = link_to '#', class: "mypage-item-list_link" do
+                %img{alt: "" ,src:"//static.mercdn.net/images/mercari_profile.png",class: "news-size-icon",data_src:"//static.mercdn.net/images/mercari_profile.png"}
+                .mypage-item-news
+                  .mypage-item-news_text お知らせ①
+                  .mypage-item-news_time
+                    -# = fa_icon "history", class: "icon-time"
+                    %span ２日前
+                -# = fa_icon "chevron-right", class: "news-arrow-icon"
+
+            %li.mypage-item-list_links
+              -# %a{href: '#', class: "mypage-item-list_link",data_open: "model",data_model: "banner"}
+              = link_to '#', class: "mypage-item-list_link" do
+                %img{alt: "" ,src:"//static.mercdn.net/images/mercari_profile.png",class: "news-size-icon",data_src:"//static.mercdn.net/images/mercari_profile.png"}
+                .mypage-item-news
+                  .mypage-item-news_text お知らせ①
+                  .mypage-item-news_time
+                    -# = fa_icon "history", class: "icon-time"
+                    %span ２日前
+                -# = fa_icon "chevron-right", class: "news-arrow-icon"
+
+            %li.mypage-item-list_links
+              -# %a{href: '#', class: "mypage-item-list_link",data_open: "model",data_model: "banner"}
+              = link_to '#', class: "mypage-item-list_link" do
+                %img{alt: "" ,src:"//static.mercdn.net/images/mercari_profile.png",class: "news-size-icon",data_src:"//static.mercdn.net/images/mercari_profile.png"}
+                .mypage-item-news
+                  .mypage-item-news_text お知らせ①
+                  .mypage-item-news_time
+                    -# = fa_icon "history", class: "icon-time"
+                    %span ２日前
+                -# = fa_icon "chevron-right", class: "news-arrow-icon"
+
+            %li.mypage-item-list_links
+              -# %a{href: '#', class: "mypage-item-list_link",data_open: "model",data_model: "banner"}
+              = link_to '#', class: "mypage-item-list_link" do
+                %img{alt: "" ,src:"//static.mercdn.net/images/mercari_profile.png",class: "news-size-icon",data_src:"//static.mercdn.net/images/mercari_profile.png"}
+                .mypage-item-news
+                  .mypage-item-news_text お知らせ①
+                  .mypage-item-news_time
+                    -# = fa_icon "history", class: "icon-time"
+                    %span ２日前
+                -# = fa_icon "chevron-right", class: "news-arrow-icon"
+
+
+            %li.mypage-go-list
+              = link_to '一覧を見る','#',class: "mypage-go-list__link"
+
+
+    = render 'shared/mypage-nav'
