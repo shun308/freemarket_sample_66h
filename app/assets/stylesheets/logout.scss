@@ -1,9 +1,24 @@
+.mypage-box {
+  width: 100vw;
+  height: 100vh;
+  background-color: #cec9c9;
+}
+
+.my-containercleanfix {
+  // width: 1020px;
+  padding-top: 45px;
+  height: 100vh;
+  margin: 0 200px;
+  
+}
 
 .logout{
+
+  // margin-right: 100px;
   float: right;
   width: 700px;
   height: 180px;
-  background-color:#ffffff;
+  background-color:white;
 
 
 .logout_form{
