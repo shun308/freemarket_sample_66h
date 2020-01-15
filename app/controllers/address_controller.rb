@@ -9,9 +9,12 @@ class AddressController < ApplicationController
 
 
   def create
-    binding.pry
-    Adresse.create(adresse_params)
-    # redirect_to
+    @adresse = Adresse.new(adresse_params)
+    if @adresse.save
+      redirect_to dones_path
+    else
+      flash.now[:alert] = "入力内容を確認してください"
+    end
   end
 
   def edit
@@ -24,7 +27,7 @@ class AddressController < ApplicationController
   
   private
   def adresse_params
-    params.require(:adresse).permit(:zipcode, :prefecture, :city, :district, :building)
+    params.require(:adresse).permit(:zipcode, :prefecture, :city, :district, :building,:first_name,:last_name,:first_name_kana,:last_name_kana,:phone_number).merge(user_id: current_user.id)
   end
 
 end
