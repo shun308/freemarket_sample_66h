@@ -12,12 +12,6 @@ Rails.application.routes.draw do
     get    'signup/registration',   to: 'users/registrations#new'
   end
   
-  get 'address/index'
-  get 'address/create'
-  get 'address/new'
-  get 'address/edit'
-  get 'address/update'
-
   get   'profile',               to: 'profiles#edit'
   patch 'profile',               to: 'profiles#update'
 
