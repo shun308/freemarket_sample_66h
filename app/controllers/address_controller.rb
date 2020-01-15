@@ -7,7 +7,6 @@ class AddressController < ApplicationController
    @adresse = Adresse.new
   end
 
-
   def create
     @adresse = Adresse.new(adresse_params)
     if @adresse.save
@@ -18,11 +17,11 @@ class AddressController < ApplicationController
   end
 
   def edit
-    @change = Adresse.find(params[:id])
+    @adresse = Adresse.find(params[:id])
   end
 
   def update
-    @change.update(adresse_params)
+    @adresse.update(adresse_params)
   end
   
   private
