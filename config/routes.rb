@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     # 新規登録
     get    'signup',                to: 'users/registrations#index'
     get    'signup/registration',   to: 'users/registrations#new'
+
   end
 
   root 'roots#index'
@@ -18,6 +19,12 @@ Rails.application.routes.draw do
   resources :profiles, only: [:update, :edit]
 
   resources :address, except: [:show, :destroy]
+  resources :creditcards, only: [:index, :new] do
+    collection do
+      post 'pay', to: 'creditcard#pay'
+      post 'delete', to: 'creditcard#delete'
+    end
+  end
   resources :mypages, only: :show
   resources :logout, only: :index
   resources :dones, only: :index
