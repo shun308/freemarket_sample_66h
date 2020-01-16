@@ -1,0 +1,18 @@
+.sign-up-box
+  = render "shared/simple-header"
+
+  %main.sign-up
+    %section.sign-up-container
+      %h2.sign-up-container_header 新規会員登録
+      .sign-up-container-main
+        .sign-up-container-main-content
+          =link_to signup_registration_path, class: "sign-up-container-main-content_mail" do
+            .sign-up-container-main-content_mail_icon.fas.fa-envelope
+            　　　　　　メールアドレスで登録する
+          .sign-up-container-main-content_facebook
+            .sign-up-container-main-content_facebook_icon.fab.fa-facebook-square
+            　　　　　　FaceBookで登録する
+          .sign-up-container-main-content_google
+            .sign-up-container-main-content_google_icon.fab.fa-google
+            　　　　　　Googleで登録する
+  = render "shared/simple-footer"

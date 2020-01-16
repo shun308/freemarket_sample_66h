@@ -1,0 +1,161 @@
+.wrapper{
+  height: 1400px;
+  width: 100vw;
+  .maypage-content{
+    margin: 0 200px;
+    padding-top: 30px;
+    width: 1020px;
+
+    &__right{
+      background-color: #fff;
+      width: 700px;
+      float: right;
+      &__icon{
+        background-image: url(heidi-fin-2TLREZi7BUg-unsplash.jpg);
+        height: 200px;
+        position: relative;
+        padding: 40px;
+        background-size: cover;
+        text-align: center;
+        &__image{
+          margin: 0 auto;
+          padding-top: 60px;
+        }
+        &__name{
+          text-decoration: none;
+          color: black;
+          display: block;
+        }       
+      }
+
+      .tab-content{
+        background-repeat: no-repeat;
+        margin: 0;
+        padding: 0;
+        height: 493px;
+    
+        .mypage-item-list{
+          height: 493px;
+          
+          &_links{
+    
+            border-bottom: 1px solid #eee;
+            height: 80px;
+            .mypage-item-list_link{
+              position: relative;
+              display: block;
+              height: 48px;
+              padding: 16px;
+              color: #333;
+              text-decoration: none;
+              .news-size-icon{
+                height: 48px;
+                float: left;
+              }
+              .mypage-item-news{
+                margin: 0 40px 0 68px;
+                &_text{
+                  font-size: 14px;
+                }
+                &_time{
+                  display: inline-block;
+                  color: #888;
+                  font-size: 14px;
+                  .icon-time{
+                    color: #888;
+                    font-size: 14px;
+                    height: 16px;
+                    width: 16px;
+                  }
+                }
+              }
+            }
+          }
+          .mypage-go-list{
+            margin-top: 15px;
+            display: block;
+            height: 56px;
+            background-color: rgb(233, 232, 232);
+            line-height: 56px;
+            text-align: center;
+            &__link{
+              text-decoration: none;
+              color: black;
+            }
+          }
+        }
+      }
+    }
+
+    .mypage-tab_container_notification-todo{
+      margin: 0;
+      height: 567px;
+      background-color:white;
+      .mypage-tabs{
+        border: 0;
+        font-size: 0;
+        &_2{
+          width: 50%;
+          display: inline-block;
+          text-align: center;
+          vertical-align: top;
+    
+    
+            &_notification{
+              text-decoration: none;
+              position: relative;
+              display: block;
+              color: #333;
+              font-size: 16px;
+              line-height: 74px;
+              background: #eee;
+    
+            }
+            &_todo{
+              text-decoration: none;
+              position: relative;
+              display: block;
+              color: #333;
+              font-size: 16px;
+              line-height: 74px;
+    
+            }
+        }
+        &_3{
+          width: 50%;
+          display: inline-block;
+          text-align: center;
+          vertical-align: top;
+          border-top: 2px solid #ea352d;
+    
+    
+            &_notification{
+              text-decoration: none;
+              position: relative;
+              display: block;
+              color: #333;
+              font-size: 16px;
+              line-height: 74px;
+              background: #eee;
+    
+            }
+            &_todo{
+              text-decoration: none;
+              position: relative;
+              display: block;
+              color: #333;
+              font-size: 16px;
+              line-height: 74px;
+    
+            }
+        }
+
+      }
+    }
+
+    .footer-mypage {
+      padding: 0 20px;
+    }
+
+  }
+}

@@ -1,0 +1,49 @@
+.wrapper
+  = render "shared/simple-header4" 
+  .main-container
+    .main-container__contents
+      .right-contents
+        %h2.contents-header
+          住所入力
+        .contents-inner
+          = form_for @adresse, url: { controller: :address, action: :create } do |adresse|
+            .form-area
+              %label お名前
+              %span.form-area__tag 必須
+              = adresse.text_field :first_name, class:"input-default", placeholder: "例) 山田"
+            .form-area-name
+              = adresse.text_field :last_name, class:"input-default", placeholder: "例) 彩"
+            .form-area
+              %label お名前カナ
+              %span.form-area__tag 必須
+              = adresse.text_field :first_name_kana, class:"input-default", placeholder: "例) ヤマダ"
+            .form-area-name
+              = adresse.text_field :last_name_kana, class:"input-default", placeholder: "例) アヤ"
+            .form-area
+              %label 郵便番号
+              %span.form-area__tag 必須
+              = adresse.text_field :zipcode, class:"input-default", placeholder: "例) 1234567"
+            .form-area
+              %label 都道府県
+              %span.form-area__tag 必須
+              = adresse.select :prefecture, Adresse.prefectures.keys,{}, class:"select-place"
+            .form-area
+              %label 市区町村
+              %span.form-area__tag 必須
+              = adresse.text_field :city, class:"input-default", placeholder: "例) 名古屋市"
+            .form-area
+              %label 番地
+              %span.form-area__tag 必須
+              = adresse.text_field :district, class:"input-default", placeholder: "例) 中区栄1-1-1"
+            .form-area
+              %label 建物名
+              %span.form-area__tag 任意
+              = adresse.text_field :building, class:"input-default", placeholder: "例) メゾン南蛮 201"
+            .form-area
+              %label 電話
+              %span.form-area__tag 任意
+              = adresse.text_field :phone_number, class:"input-default", placeholder: "例）09012345678"
+            .delete-deco
+              = adresse.submit "登録する", class: "btn-update btn-red"
+  .address-footer
+    = render "shared/simple-footer"

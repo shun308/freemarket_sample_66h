@@ -1,0 +1,16 @@
+.wrapper
+  = render "shared/simple-header6" 
+  .finish-page
+    .main-box
+      .box-top
+        %h1.finsh-header
+          会員登録完了
+      .box-midle
+        %h3.finish-content
+          ありがとうございます。
+        %br
+          会員登録が完了しました。
+      .box-btn
+        .home-btn
+          =link_to 'メルカリをはじめる',root_path, class:'finish-home-btn'
+  = render "shared/simple-footer"

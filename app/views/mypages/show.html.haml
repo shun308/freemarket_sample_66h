@@ -1,0 +1,70 @@
+= render 'roots/header'
+.wrapper
+  .maypage-content
+
+    = render 'shared/mypage-nav'
+    %main.maypage-content__right
+      %section.maypage-content__right__icon
+        = image_tag "joey-nicotra-aQSPWSxCweY-unsplash", class:"maypage-content__right__icon__image", size: '50x50'
+        = link_to "荻野","https://www.mercari.com/jp/", { :class => "maypage-content__right__icon__name" }
+      %section.mypage-tab_container_notification-todo
+        %ul.mypage-tabs
+          %li.mypage-tabs_2
+            = link_to 'お知らせ', '#', class: "mypage-tabs_2_notification"
+          %li.mypage-tabs_3
+            = link_to 'やることリスト', '#', class: "mypage-tabs_2_todo"
+
+        .tab-content
+          %ul#tab-content-notification.mypage-item-list
+            %li.mypage-item-list_links
+              = link_to '#', class: "mypage-item-list_link" do
+                =image_tag "//static.mercdn.net/images/mercari_profile.png",class:"news-size-icon"
+                .mypage-item-news
+                  .mypage-item-news_text お知らせ①
+                  .mypage-item-news_time
+                    %span ２日前
+
+            %li.mypage-item-list_links
+              = link_to '#', class: "mypage-item-list_link" do
+                =image_tag "//static.mercdn.net/images/mercari_profile.png",class:"news-size-icon"
+                .mypage-item-news
+                  .mypage-item-news_text お知らせ①
+                  .mypage-item-news_time
+                    %span ２日前
+
+            %li.mypage-item-list_links
+              = link_to '#', class: "mypage-item-list_link" do
+                =image_tag "//static.mercdn.net/images/mercari_profile.png",class:"news-size-icon"
+                .mypage-item-news
+                  .mypage-item-news_text お知らせ①
+                  .mypage-item-news_time
+                    %span ２日前
+
+            %li.mypage-item-list_links
+              = link_to '#', class: "mypage-item-list_link" do
+                =image_tag "//static.mercdn.net/images/mercari_profile.png",class:"news-size-icon"
+                .mypage-item-news
+                  .mypage-item-news_text お知らせ①
+                  .mypage-item-news_time
+                    %span ２日前
+
+            %li.mypage-item-list_links
+              = link_to '#', class: "mypage-item-list_link" do
+                =image_tag "//static.mercdn.net/images/mercari_profile.png",class:"news-size-icon"
+                .mypage-item-news
+                  .mypage-item-news_text お知らせ①
+                  .mypage-item-news_time
+                    %span ２日前
+
+            .footer-mypage
+              %li.mypage-go-list
+                = link_to '一覧を見る','#',class: "mypage-go-list__link"
+= render 'roots/footer'
+= render 'roots/footer2'
+= render 'roots/footer3'
+    
+
+
+
+
+
