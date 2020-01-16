@@ -1,7 +1,4 @@
 class AddressController < ApplicationController
-  # def index
-  #   @adresses = Adresse.all
-  # end
 
   def new
    @adresse = Adresse.new
