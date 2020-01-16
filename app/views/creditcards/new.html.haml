@@ -46,7 +46,6 @@
                 %option{value: "10"}10
                 %option{value: "11"}11
                 %option{value: "12"}12
-              -# = fa_icon 'chevron-down', class: "credit_form_select-wrap_icon"
             %span 月
             %br/
             .credit_form_select-wrap
@@ -63,7 +62,6 @@
                 %option{value: "2027"}27
                 %option{value: "2028"}28
                 %option{value: "2029"}29
-              -# = fa_icon 'chevron-down', class: "credit_form_select-wrap_icon"
             %span 年
           %br
           .form-group
@@ -75,6 +73,7 @@
                 %span.quiestion-tag ?
                 カード裏面の番号とは？
           #card_token
+          -# 購入機能実装時に実装予定
           -# = submit_tag "追加する", id: "token_submit", class:"credit_form_btn"
           =link_to dones_path, id: "token_submit", class:"credit_form_btn" do
             次に進む
