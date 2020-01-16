@@ -7,7 +7,7 @@
       %h2.contents-header
         発送元・お届け先住所変更
       .contents-inner
-        = form_for @adresse, url: { controller: :address, action: :create } do |adresse|
+        = form_for @adresse, url: { controller: :adresses, action: :update } do |adresse|
           .form-area
             %label お名前
             %span.form-area__tag 必須

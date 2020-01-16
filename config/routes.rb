@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   root 'roots#index'
   
   resources :profiles, only: [:update, :edit]
-  resources :address, except: [:show, :destroy]
+  resources :adresses, except: [:show, :destroy]
   resources :creditcards, only: [:index, :new] do
     collection do
       post 'pay', to: 'creditcard#pay'

@@ -6,7 +6,7 @@
         %h2.contents-header
           住所入力
         .contents-inner
-          = form_for @adresse, url: { controller: :address, action: :create } do |adresse|
+          = form_for @adresse, url: { controller: :adresses, action: :create } do |adresse|
             .form-area
               %label お名前
               %span.form-area__tag 必須

@@ -1,4 +1,4 @@
-class AddressController < ApplicationController
+class AdressesController < ApplicationController
 
   def new
    @adresse = Adresse.new
