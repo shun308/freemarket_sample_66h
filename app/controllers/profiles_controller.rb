@@ -2,6 +2,7 @@ class ProfilesController < ApplicationController
   before_action :authenticate_user!
 
   def edit
+    # 今後実装予定
     #@user = current_user.id
     #@user_name = User.find_by(:nickname)
     #@profile = Profile.find(params[:id])

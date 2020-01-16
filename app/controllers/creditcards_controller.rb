@@ -1,4 +1,5 @@
 class CreditcardsController < ApplicationController
+  # 今後実装予定
   # before_action :authenticate_user!
 
   # require "payjp"
