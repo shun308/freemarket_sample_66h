@@ -1,31 +1,26 @@
 Rails.application.routes.draw do
-  devise_for :users, controllers: { registrations: 'users/registrations' }
-
-  devise_scope :user do
-    # ログイン・ログアウト
-    get    'login',                 to: 'users/sessions#new'
-    post   'login',                 to: 'users/sessions#create'
-    delete 'logout',                to: 'users/sessions#destroy'
-    # 新規登録
-    get    'signup',                to: 'users/registrations#index'
-    get    'signup/registration',   to: 'users/registrations#new'
-
-  end
-
-  root 'roots#index'
+  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks', sessions: 'users/sessions' }
   
-  resources :profiles, only: [:update, :edit]
-  resources :address, except: [:show, :destroy]
-  resources :creditcards, only: [:index, :new] do
+  root 'products#index'
+
+  #商品周り
+  resources :products, only: [:index, :show, :new, :create, :edit, :update, :destroy]
+
+  #ユーザー周り
+  resources :users, only: [ :new, :show, :edit, :create, :destroy, :update]
+
+  #ログイン単一ページ
+  resources :login, only: :index
+
+  #新規登録ページ
+  resources :signup do
     collection do
-      post 'pay', to: 'creditcard#pay'
-      post 'delete', to: 'creditcard#delete'
+      get 'registration'
+      get 'phone'
+      get 'address'
+      get 'credit'
+      get 'done'
     end
   end
-  resources :mypages, only: :show
-  resources :logout, only: :index
-  resources :dones, only: :index
-  resources :identifications, only:[:update, :edit]
-  resources :products
 
 end

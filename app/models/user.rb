@@ -4,13 +4,10 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :comments, dependent: :destroy
-  has_many :products, dependent: :destroy
-  has_many :likes
-  has_many :sns
-  has_many :tradings
-  has_one :creditcard
-  has_one :profile
-  accepts_nested_attributes_for :profile
-  validates :nickname, presence: true, length: { maximum: 6 }
+  # アソシエーション
+  has_one :credit
+  accepts_nested_attributes_for :credit
+  has_many :sns_credentials
+  has_many :exhibited_products, class_name: 'Product', foreign_key: :exhibitor_id
+  has_many :purchased_products, class_name: 'Product', foreign_key: :purchaser_id
 end
