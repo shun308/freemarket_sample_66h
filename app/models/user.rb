@@ -11,10 +11,6 @@ class User < ApplicationRecord
   has_many :exhibited_products, class_name: 'Product', foreign_key: :exhibitor_id
   has_many :purchased_products, class_name: 'Product', foreign_key: :purchaser_id
 
-  enum birthdate_year: {
-  あああ: 1, あ青森県: 2, あ岩手県: 3, あ宮城県: 4, あ秋田県: 5, あ山形県: 6, あ福島県: 7
-  }
-
   # 都道府県
   enum address_prefecture: {
   北海道:1,青森県:2,岩手県:3,宮城県:4,秋田県:5,山形県:6,福島県:7,

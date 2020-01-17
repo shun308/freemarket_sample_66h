@@ -10,11 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_17_040541) do
+ActiveRecord::Schema.define(version: 2020_01_17_113143) do
 
   create_table "credits", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id"
-    t.integer "card_number", null: false
+    t.bigint "card_number", null: false
     t.integer "validated_date_month", default: 0, null: false
     t.integer "validated_date_year", default: 0, null: false
     t.integer "security_code", null: false
@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(version: 2020_01_17_040541) do
     t.integer "birthdate_year", default: 0, null: false
     t.integer "birthdate_month", default: 0, null: false
     t.integer "birthdate_day", default: 0, null: false
-    t.integer "phone_number", null: false
+    t.bigint "phone_number", null: false
     t.string "address_last_name", null: false
     t.string "address_first_name", null: false
     t.string "address_last_name_kana", null: false
@@ -52,7 +52,7 @@ ActiveRecord::Schema.define(version: 2020_01_17_040541) do
     t.string "address_name", null: false
     t.string "address_block", null: false
     t.string "address_building"
-    t.integer "address_phone_number"
+    t.bigint "address_phone_number"
     t.text "introduce"
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
