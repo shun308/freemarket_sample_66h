@@ -1,10 +1,10 @@
 class SignupController < ApplicationController
-  # include RedirectToTop
-  # before_action :redirect_to_top, except: :done
-  # before_action :save_to_session_before_phone, only: :phone
-  # before_action :save_to_session_before_address, only: :address
-  # before_action :save_to_session_before_credit, only: :credit
-  # before_action :save_to_session_before_done, only: :create
+  #include RedirectToTop
+  #before_action :redirect_to_top, except: :done
+  before_action :save_to_session_before_phone, only: :phone
+  before_action :save_to_session_before_address, only: :address
+  before_action :save_to_session_before_credit, only: :credit
+  before_action :save_to_session_before_done, only: :create
 
   def index # 新規会員登録方法画面
     session[:flag] = "signup" #signupページであることを示す目印

@@ -1,22 +1,22 @@
--# :css
--#   li:nth-child(1).signup-header__nav--list {
--#     color: #ea352d;
--#     font-weight: 600;
--#   }
--#   li:nth-child(1) .signup-header__nav--status{
--#     background-color: #ea352d;
--#   }
--# :javascript
--#   $(function() {
--#     var year = $('#year').attr("value");
--#     var month = $('#month').attr("value");
--#     var day = $('#day').attr("value");
--#     $("#year option[value="+ year +"]").prop('selected', true);
--#     $("#month option[value="+ month +"]").prop('selected', true);
--#     $("#day option[value="+ day +"]").prop('selected', true);
--#   })
+:css
+  li:nth-child(1).signup-header__nav--list {
+    color: #ea352d;
+    font-weight: 600;
+  }
+  li:nth-child(1) .signup-header__nav--status{
+    background-color: #ea352d;
+  }
+:javascript
+  $(function() {
+    var year = $('#year').attr("value");
+    var month = $('#month').attr("value");
+    var day = $('#day').attr("value");
+    $("#year option[value="+ year +"]").prop('selected', true);
+    $("#month option[value="+ month +"]").prop('selected', true);
+    $("#day option[value="+ day +"]").prop('selected', true);
+  })
 .signup-first
-  -# = render 'shared/sign-up-header'
+  -#= render 'shared/sign-up-header'
   .first-main
     %section.first-main__wrapper
       .first-main__title 会員情報入力
@@ -91,7 +91,7 @@
             %span.first-main__form--require 必須
             .first-main__select-wrapper
               .first-main__select-box
-                = f.select :birthdate_year, User.birthdate_years.keys, {}, {class: 'first-main__select-box--input', id: 'year', value: "#{session[:birthdate_year]}"} do
+                = f.select :birthdate_year, nil, {}, {class: 'first-main__select-box--input', id: 'year', value: "#{session[:birthdate_year]}"} do
                   %option.first-main__select-box--input --
                 %i.fas.fa-chevron-down.first-main__select-box--arrow-down
               %span.first-main__select-detail 年
@@ -126,4 +126,4 @@
               = link_to '#', class: 'first-main__about-registration' do
                 本人情報の登録について
                 %i.fas.fa-chevron-right.first-main__about-registration--arrow-right
-  -# = render 'shared/user-footer'
+  -#= render 'shared/user-footer'
