@@ -1,6 +1,6 @@
 class SignupController < ApplicationController
   #include RedirectToTop
-  #before_action :redirect_to_top, except: :done
+  before_action :redirect_to_top, except: :done
   before_action :save_to_session_before_phone, only: :phone
   before_action :save_to_session_before_address, only: :address
   before_action :save_to_session_before_credit, only: :credit
@@ -249,5 +249,10 @@ private
     )
     @user.build_credit(user_params[:credit_attributes])
     render '/signup/credit' unless @user.valid?
+  end
+
+  # ログインしている場合、トップページへ戻す
+  def redirect_to_top
+    redirect_to products_path if user_signed_in?
   end
 end
