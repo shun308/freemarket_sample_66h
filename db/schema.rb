@@ -10,6 +10,60 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 2020_01_17_040541) do
 
+  create_table "credits", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id"
+    t.integer "card_number", null: false
+    t.integer "validated_date_month", default: 0, null: false
+    t.integer "validated_date_year", default: 0, null: false
+    t.integer "security_code", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "fk_rails_9001739776"
+  end
+
+  create_table "sns_credentials", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "provider"
+    t.string "uid"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "fk_rails_c5d66654bc"
+  end
+
+  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "email", null: false
+    t.string "nickname", null: false
+    t.string "last_name", null: false
+    t.string "first_name", null: false
+    t.string "last_name_kana", null: false
+    t.string "first_name_kana", null: false
+    t.integer "birthdate_year", default: 0, null: false
+    t.integer "birthdate_month", default: 0, null: false
+    t.integer "birthdate_day", default: 0, null: false
+    t.integer "phone_number", null: false
+    t.string "address_last_name", null: false
+    t.string "address_first_name", null: false
+    t.string "address_last_name_kana", null: false
+    t.string "address_first_name_kana", null: false
+    t.string "address_number", null: false
+    t.integer "address_prefecture", default: 0, null: false
+    t.string "address_name", null: false
+    t.string "address_block", null: false
+    t.string "address_building"
+    t.integer "address_phone_number"
+    t.text "introduce"
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  add_foreign_key "credits", "users"
+  add_foreign_key "sns_credentials", "users"
 end
