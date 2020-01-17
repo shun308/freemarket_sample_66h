@@ -1,36 +1,17 @@
-#session-sign-in
-
-  .sign-in
-    = render "shared/simple-header"
-    .contents
-      .sign_up
-        %p アカウントをお持ちでない方はこちら
-        = link_to signup_path, class: "sign_up__registrattion" do
-          %p 新規会員登録
-
-      .main
-        .account-button.main__sns
-          .facebook
-            .account-button__facebook
-              facebookでログイン
-            %i.fab.fa-facebook-square
-
-          .google
-            .account-button__google
-              Googleでログイン
-            %i.fab.fa-google
-
-        .form
-          .main
-            = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-              .field.email
-                = f.email_field :email, autofocus: true, autocomplete: "email", class: "form__enter" ,placeholder:"メールアドレス"
-              .field.password
-                = f.password_field :password, autocomplete: "current-password",class: "form__enter" ,placeholder:"パスワード"
-                = f.submit "わたしはロボットではありません", class: "confirmbox"
-              .foom__a.actions
-                = f.submit "ログイン", class: "login"
-
-          .forget-password
-            = link_to "パスワードをお忘れの方", "#", class: "forget-password"
-    = render "shared/simple-footer"
+%h2 Log in
+= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+  .field
+    = f.label :email
+    %br/
+    = f.email_field :email, autofocus: true, autocomplete: "email"
+  .field
+    = f.label :password
+    %br/
+    = f.password_field :password, autocomplete: "current-password"
+  - if devise_mapping.rememberable?
+    .field
+      = f.check_box :remember_me
+      = f.label :remember_me
+  .actions
+    = f.submit "Log in"
+= render "devise/shared/links"
