@@ -1,5 +1,5 @@
 class ChangeDataPcardNumberToCredits < ActiveRecord::Migration[5.2]
-  def change
+  def up
     change_column :credits, :card_number, :bigint
   end
 end
