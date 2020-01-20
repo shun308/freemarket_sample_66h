@@ -14,7 +14,6 @@
 
   .header_inner {
     width: 1020px;
-    height: 100px;
     margin: 0 auto;
     padding: 8px 0 0;
     z-index: 100;
@@ -255,11 +254,6 @@
       }
     }
   }
-}
-
-.header-top-image {
-  width: 100vw;
-  height: 340px;
 }
 
  @media screen and (max-width:1060px) {
