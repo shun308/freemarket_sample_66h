@@ -72,7 +72,7 @@
     %h3.mypage-nav-bottom
       設定
       %ul.l-side__list
-        = link_to root_path(current_user), class:"l-side__list__link__area__name" do
+        = link_to "/mypages/#{current_user.id}/edit", class:"l-side__list__link__area__name" do
           %li.l-side__list__link
             プロフィール
             %i.fas.fa-angle-right
