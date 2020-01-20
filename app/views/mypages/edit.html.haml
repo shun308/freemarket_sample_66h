@@ -6,7 +6,7 @@
     %h2.container__profile プロフィール
     = form_for @user, url: { controller: :mypages, action: :update } , html:{class: "edit_form"} do |f|
       .container__name
-        = image_tag "https://static.mercdn.net/images/member_photo_noimage_thumb.png", class: "image-tag"
+        = image_tag "人.jpg", class: "image-tag"
         = f.text_field :nickname, value: "#{@user.nickname}" ,class: "edit_name"
       .container__text
         = f.text_area :introduce, value: "#{@user.introduce}",class: "introduce", placeholder: "例）こんにちは☆ ご覧いただきありがとうございます！かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品や発送方法などご質問がありましたらお気軽にどうぞ♪"
