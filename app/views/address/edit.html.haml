@@ -1,17 +1,17 @@
 .contents-inner
-  = form_for @address, url: { controller: :address, action: :edit } do |user|
+  = form_for @address, url: { controller: :address, action: :update } do |user|
     .form-area
       %label お名前
       %span.form-area__tag 必須
-      = user.text_field :first_name, class:"input-default", placeholder: "例) 山田"
+      = user.text_field :address_first_name, class:"input-default", placeholder: "例) 山田"
     .form-area-name
-      = user.text_field :last_name, class:"input-default", placeholder: "例) 彩"
+      = user.text_field :address_last_name, class:"input-default", placeholder: "例) 彩"
     .form-area
       %label お名前カナ
       %span.form-area__tag 必須
-      = user.text_field :first_name_kana, class:"input-default", placeholder: "例) ヤマダ"
+      = user.text_field :address_first_name_kana, class:"input-default", placeholder: "例) ヤマダ"
     .form-area-name
-      = user.text_field :last_name_kana, class:"input-default", placeholder: "例) アヤ"
+      = user.text_field :address_last_name_kana, class:"input-default", placeholder: "例) アヤ"
     .form-area
       %label 郵便番号
       %span.form-area__tag 必須

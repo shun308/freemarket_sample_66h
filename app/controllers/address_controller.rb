@@ -4,8 +4,8 @@ class AddressController < ApplicationController
   end
 
   def update
-    if user.find(params[:id]).update(address_params)
-      redirect_to root_path
+    if User.find(params[:id]).update(address_params)
+      redirect_to edit_address_path(current_user)
     else
       flash.now[:alert] = "入力内容を確認してください"
     end
@@ -13,7 +13,6 @@ class AddressController < ApplicationController
   
   private
   def address_params
-    params.require(:address).permit(:zipcode, :prefecture, :city, :district, :building,:first_name,:last_name,:first_name_kana,:last_name_kana,:phone_number).
+    params.require(:user).permit(:address_first_name,:address_last_name,:address_first_name_kana,:address_last_name_kana,:address_number,:address_prefecture,:address_name,:address_block,:address_building,:address_phone_number)
   end
-
 end
