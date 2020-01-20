@@ -1,0 +1,51 @@
+%main-header.main-header
+  .header_inner
+    .header_inner_top
+      %h1.logo
+        =link_to root_path do
+          = image_tag "fmarket_logo_red.svg", size: '100×100'
+      .header_form
+        %input.header_form__textfield{name: "keyword", placeholder: "何かお探しですか？", type: "text", value: ""}
+        %button.search-icon
+          %i.fas.fa-search.loupe-icon
+    .header_bottom-crearfix
+      .left-contents
+        .left-contents_search-nav
+          %li.category_nav
+            .category_text
+              カテゴリーから探す
+            .category_icon
+              %i.fas.fa-list-ul.border-icon
+          %li.brand_nav
+            .brand_text
+              ブランドから探す
+            .brand_icon
+              %i.fas.fa-tag.label-icon
+      - if user_signed_in?
+        .right-contents
+          .right-contents_user-nav
+            %li.right-header_notification
+              -# = link_to 'お知らせ' mypage_notification_path do
+              -# link先実装後にlink化します
+              .right-header_notification_text お知らせ
+              .right-header_notification_icon
+                %i.fas.fa-bullhorn.horn-icon
+            %li.right-header_todo-list
+              -# = link_to 'やることリスト' mypage_todo_path do
+              -# link先実装後にlink化します
+              .right-header_todo-list_text やることリスト
+              .right-header_todo-list_icon
+                %i.fas.fa-check-circle.check-icon
+            %li.right-header_mypage-link
+              = link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'user-logout-main__btn'
+              = link_to 'マイページ', "/mypages/#{current_user.id}", style:'text-decoration:none;color:#333333', class:'right-header_mypage-link_text'
+              .right-header_mypage-link_icon
+                %i.fas.fa-user-circle.user-icon
+      - else
+        .right-contents
+          .right-contents_user-nav
+            %li.right-header_log-in
+              = link_to '新規会員登録', signup_index_path
+            %li.right-header_sign-up
+              = link_to 'ログイン', new_user_session_path
+              

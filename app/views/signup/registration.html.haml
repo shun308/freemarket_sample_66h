@@ -16,7 +16,7 @@
     $("#day option[value="+ day +"]").prop('selected', true);
   })
 .signup-first
-  -#= render 'shared/sign-up-header'
+  = render 'shared/sign-up-header'
   .first-main
     %section.first-main__wrapper
       .first-main__title 会員情報入力
@@ -126,4 +126,4 @@
               = link_to '#', class: 'first-main__about-registration' do
                 本人情報の登録について
                 %i.fas.fa-chevron-right.first-main__about-registration--arrow-right
-  -#= render 'shared/user-footer'
+  = render 'shared/user-footer'

@@ -1,4 +1,84 @@
-aaaa
-.user-logout-main
-  = link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'user-logout-main__btn'
-  =render partial: 'layouts/footer'
+=render partial: 'layouts/header'
+%body
+  .body_main
+    %div.slick
+      %div
+        = image_tag "heidi-fin-2TLREZi7BUg-unsplash.jpg", class: "slide-image"
+      
+    .product-header
+      人気のカテゴリー
+    .product-container
+      .product-container_box__clearfix
+        .text_place
+          .text_place__left
+            レディース 新着アイテム
+          .text_place__right
+            もっと見る>
+        .product-container_contents__box-clearfix
+                  
+
+      .product-container_box__clearfix
+        .text_place
+          .text_place__left
+            メンズ 新着アイテム
+          .text_place__right
+            もっと見る>
+          
+        .product-container_contents__box-clearfix
+          
+
+      .product-container_box__clearfix
+        .text_place
+          .text_place__left
+            ベビー・キッズ 新着アイテム
+          .text_place__right
+            もっと見る>
+          
+        .product-container_contents__box-clearfix
+          
+      
+
+      .product-container_box__clearfix
+        .text_place
+          .text_place__left
+            コスメ・香水・美容 新着アイテム
+          .text_place__right
+            もっと見る>
+          
+        .product-container_contents__box-clearfix
+          
+
+    .product-header
+      人気のブランド
+    .product-container
+      .product-container_box__clearfix
+        .text_place
+          .text_place__left
+            シャネル 新着アイテム
+          .text_place__right
+            もっと見る>
+          
+        .product-container_contents__box-clearfix
+          
+
+      .product-container_box__clearfix
+        .text_place
+          .text_place__left
+            ルイ ヴィトン 新着アイテム
+          .text_place__right
+            もっと見る>
+          
+        .product-container_contents__box-clearfix
+          
+
+      .product-container_box__clearfix
+        .text_place
+          .text_place__left
+            シュプリーム 新着アイテム
+          .text_place__right
+            もっと見る>
+          
+        .product-container_contents__box-clearfix
+
+=render partial: 'layouts/footer'
+=render partial: 'layouts/footer-button'

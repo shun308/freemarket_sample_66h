@@ -1,19 +1,19 @@
--# :css
--#   li:nth-child(4).signup-header__nav--list {
--#     color: #ea352d;
--#     font-weight: 600;
--#   }
--#   li:nth-child(n+1):nth-child(-n+4) .signup-header__nav--status{
--#     background-color: #ea352d;
--#   }
--#   li:nth-child(n+1):nth-child(-n+3) .signup-header__nav--status:after{
--#     background-color: #ea352d;
--#   }
--#   li:nth-child(n+2):nth-child(-n+4) .signup-header__nav--status:before{
--#     background-color: #ea352d;
--#   }
+:css
+  li:nth-child(4).signup-header__nav--list {
+    color: #ea352d;
+    font-weight: 600;
+  }
+  li:nth-child(n+1):nth-child(-n+4) .signup-header__nav--status{
+    background-color: #ea352d;
+  }
+  li:nth-child(n+1):nth-child(-n+3) .signup-header__nav--status:after{
+    background-color: #ea352d;
+  }
+  li:nth-child(n+2):nth-child(-n+4) .signup-header__nav--status:before{
+    background-color: #ea352d;
+  }
 .signup-forth
-  -# = render 'shared/sign-up-header'
+  = render 'shared/sign-up-header'
   .forth-main
     %section.forth-main-wrapper
       .forth-main-wrapper__title 支払い方法
@@ -64,4 +64,4 @@
             %span.forth-main-wrapper__question--mark ?
             カード裏面の番号とは？
           = f.submit '次へ進む', class: 'forth-main-wrapper__form--btn'
-  -# = render 'shared/user-footer'
+  = render 'shared/user-footer'

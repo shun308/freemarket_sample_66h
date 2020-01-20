@@ -1,17 +1,31 @@
-%h2 Log in
-= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
-    = f.label :password
-    %br/
-    = f.password_field :password, autocomplete: "current-password"
-  - if devise_mapping.rememberable?
-    .field
-      = f.check_box :remember_me
-      = f.label :remember_me
-  .actions
-    = f.submit "Log in"
-= render "devise/shared/links"
+.login-container
+  = render 'shared/user-header'
+  .login-main
+    .login-main__panel
+      .login-main__no-account
+        .p アカウントをお持ちでない方はこちら
+        = link_to signup_index_path, class: "login-main__no-account--btn" do
+          新規会員登録
+      .login-main__sns
+        = link_to "#", class: 'login-main__sns--facebook-btn', method: :post do
+          %i.fab.fa-facebook-square.login-main__sns--facebook-icon
+          Facebookでログイン
+        = link_to "#", class: 'login-main__sns--google-btn', method: :post do
+          %i.fab.fa-google.login-main__sns--google-icon
+          Googleでログイン
+        - if session[:error] != nil
+          %ul
+            %li.has_error_text="#{session[:error]}"    
+      = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+        .login-main__form
+          - if alert
+            .has_error_text
+              = alert
+          = f.email_field :email, class: 'login-main__form--email', placeholder: 'メールアドレス'
+          = f.password_field :password, class: 'login-main__form--password', placeholder: 'パスワード', autocomplete: "off"
+          .robot
+            = image_tag '/images/temporary_reCAPTCHA.png', size: '304x78'
+          = f.submit 'ログイン', class: 'login-main__form--btn'
+          = link_to "#", class: 'login-main__forgot-password' do
+            パスワードをお忘れの方
+  = render 'shared/user-footer'
