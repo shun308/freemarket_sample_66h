@@ -1,33 +1,31 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:edit,:update]
+  # before_action :set_user, only: [:edit,:update]
 
   def edit
+    @user = User.find(params[:id])
+    
   end
 
   def update
+    @user = User.find(params[:id])
     if @user.update(user_params)
-      redirect_to edit_user_path, notice:"変更しました。"
+      redirect_to root_path, notice:"変更しました。"
     else 
-      redirect_to edit_user_path, alert:"変更に失敗しました。"
+      redirect_to root_path, alert:"変更に失敗しました。"
     end
   end
 
-  def show
-    @user = set_user
+  def logout
+    
   end
 
-  def new
-  end
-
-  def create
-  end
 
   private
   def user_params
-    params.require(:user).permit(:nickname,:introduce,:last_name,:first_name)
+    params.require(:user).permit(:address_number,:address_prefecture,:address_name,:address_block,:address_building,:address_phone_number)
   end
 
-  def set_user
-    @user = User.find(params[:id])
-  end
+  # def set_user
+  #   @user = User.find(params[:id])
+  # end
 end
