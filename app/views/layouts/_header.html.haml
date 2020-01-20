@@ -37,6 +37,7 @@
               .right-header_todo-list_icon
                 %i.fas.fa-check-circle.check-icon
             %li.right-header_mypage-link
+              = link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'user-logout-main__btn'
               = link_to 'マイページ', "/mypages/#{current_user.id}", style:'text-decoration:none;color:#333333', class:'right-header_mypage-link_text'
               .right-header_mypage-link_icon
                 %i.fas.fa-user-circle.user-icon
@@ -47,4 +48,4 @@
               = link_to '新規会員登録', signup_index_path
             %li.right-header_sign-up
               = link_to 'ログイン', new_user_session_path
-              = link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'user-logout-main__btn'
+              
