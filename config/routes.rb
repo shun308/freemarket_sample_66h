@@ -7,8 +7,16 @@ Rails.application.routes.draw do
   #商品周り
   resources :products, only: [:index, :show, :new, :create, :edit, :update, :destroy]
 
-  #ユーザー周り
-  resources :users, only: [ :new, :show, :edit, :create, :destroy, :update]
+  #ユーザー本人情報編集ページ、ログアウト、
+  resources :users, only: [:edit, :destroy, :update] do
+    collection do
+      get 'logout'
+    end
+  end
+  #発送元編集ページ
+  resources :address, only: [:update, :edit]
+  #詳細ページ、プロフィール編集ページ
+  resources :mypage, only: [:show, :edit, :update]
 
   #ログイン単一ページ
   resources :login, only: :index
