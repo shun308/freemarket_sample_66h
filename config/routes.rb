@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: { sessions: 'users/sessions' }
   
-  root 'signup#registration'
-  # root 'products#index'
+  # root 'signup#registration'
+  root 'products#index'
 
   #商品周り
   resources :products, only: [:index, :show, :new, :create, :edit, :update, :destroy]
