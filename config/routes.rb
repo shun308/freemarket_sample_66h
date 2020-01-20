@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'mypages/show'
+  get 'mypages/edit'
+  get 'mypages/update'
   devise_for :users, controllers: { sessions: 'users/sessions' }
   
   # root 'signup#registration'
@@ -16,7 +19,7 @@ Rails.application.routes.draw do
   #発送元編集ページ
   resources :address, only: [:update, :edit]
   #詳細ページ、プロフィール編集ページ
-  resources :mypage, only: [:show, :edit, :update]
+  resources :mypages, only: [:show, :edit, :update]
 
   #ログイン単一ページ
   # resources :login, only: :index
