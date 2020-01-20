@@ -139,7 +139,7 @@
           width: 380px;
           display: flex;
           .right-header_notification {
-            width: 80px;
+            // width: 80px;
             padding: 6px;
             display: inline-block;
             &_text {
@@ -147,6 +147,7 @@
               float: right;
             }
             &_icon {
+              margin-right: 2px;
               height: 20px;
               width: 20px;
               float: left;
@@ -160,7 +161,8 @@
             }
           }
           .right-header_todo-list {
-            width: 125px;
+            // width: 125px;
+            // margin-right: 3px;
             padding: 6px;
             display: inline-block;
             &_text {
@@ -172,6 +174,7 @@
               height: 20px;
               width: 20px;
               float: left;
+              margin-right: 3px;
               padding: bottom 2px;
               .check-icon {
                 font-size: 16px;
@@ -183,7 +186,7 @@
             }
           }
           .right-header_mypage-link {
-            width: 100px;
+            // width: 100px;
             padding: 6px;
             display: inline-block;
             &_text {
