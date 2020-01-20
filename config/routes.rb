@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   resources :mypage, only: [:show, :edit, :update]
 
   #ログイン単一ページ
-  resources :login, only: :index
+  # resources :login, only: :index
 
   #新規登録ページ
   resources :signup do
