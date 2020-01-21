@@ -1,0 +1,140 @@
+%script{src: 'product_show_photo', type: 'text/html'}
+
+/* class名の長さはscssの独自性を確保するためであり、読みにくさはご愛嬌。本当は独自性確保かつ読みやすさを追求したいが今は難しい。 */
+
+.wrapper3
+
+  = render 'layouts/header'
+
+  %section.item-container1
+    %h1.item-container1__item-name 
+      -# = @product.name
+    .item-container1__item-content.clearfix
+      .content--photo
+        %ul.content--photo-up
+          -#  - @product.photos.each_with_index do |photo, i|
+          -#   %li.photo-up-piece
+          -#     = image_tag @product.photos[i].variant(resize:'300x300',auto_orient: true).processed
+        %ul.content--photo-down
+          -# - @product.photos.each_with_index do |photo, i|
+          -#   %li.content-photo-down__piece
+          -#     = image_tag @product.photos[i].variant(resize:'60x60',auto_orient: true).processed
+          -# -if @product.purchaser_id.present?
+            .content--photo_sold
+              .content--photo_sold__inner
+                -# SOLD
+
+      %table.content--detail-table
+        %tbody.table
+          %tr.table--section
+            %th.table--section-left 
+              出品者
+            %th.table--section-right 
+              -# = @product.exhibitor.nickname
+          %tr.table--section
+            %th.table--section-left
+              カテゴリー
+            %th.table--section-right 
+              -# = @product.category.name
+          %tr.table--section
+            %th.table--section-left
+              ブランド
+            %th.table--section-right
+              -# = @product.brand&.name  #突然 .brand.name がundefined：nameになる 
+          %tr.table--section
+            %th.table--section-left
+              商品状態
+            %th.table--section-right
+              -# = @product.product_status 
+          %tr.table--section
+            %th.table--section-left
+              配送料負担
+            %th.table--section-right
+              -# = @product.delivery_charge 
+          %tr.table--section
+            %th.table--section-left
+              配送方法
+            %th.table--section-right
+              -# = @product.delivery_method 
+          %tr.table--section
+            %th.table--section-left
+              配送元
+            %th.table--section-right
+              -# = @product.delivery_area 
+          %tr.table--section
+            %th.table--section-left
+              配送日目安
+            %th.table--section-right
+              -# = @product.delivery_days 
+
+    .item-container1__item-price
+      %span.item-container1__item-price-bold
+        ¥
+        -# = number_with_delimiter(@product.price)
+      %span.item-container1__item-price-tax (税込)
+      %span.item-container1__item-price-shipping-fee
+        -# = @product.delivery_charge
+    = link_to " 購入画面に進む", root_path,  class:"item-container1__item-buy-btn"
+    .item-container1__item-description 
+      %p.item-description-inner
+        -# This is description area⬇︎ 
+        -# = simple_format(@product.product_introduction, align: "left")
+    .item-container1__item-other-btn.clearfix
+      .link_btn_left
+        %button.item-other-btn-left 
+          いいね！
+          = rand(30) + 1
+      .link_btn_right
+        %i.fa.fa-lock
+        = link_to '安心安全への取り組み', root_path, class: 'item-other-btn-right'
+
+  %ul.item-nav.clearfix
+    %li.item-nav__link
+      = link_to '< Preview product', root_path, class: 'item-nav__link-prev'
+      = link_to 'Next product >', root_path, class: 'item-nav__link-next'
+  .sns
+    %ul.sns--aikon
+      %i.fab.fa-facebook-square
+      %i.fab.fa-twitter-square
+      %i.fab.fa-pinterest
+  .item-others
+    %section.item-others--seller
+      %h2.item-others--seller_name 出品者のその他の商品
+      .item-others--seller_product.clearfix
+        -# - @product_other.each_with_index do |product_other, i|
+          -# = link_to product_path(product_other) do
+            .item-others--seller_product_box
+              .items-box_photo.item-box__image
+                -# = image_tag product_other.photos[0].variant(resize:'220x220',auto_orient: true).processed, class: "item-box__image--inner"
+                -# -# product_otherは'シード1回目'から表示されますが、'シード1回目'~'シード99回目'は画像が登録されてないのでvariantでundefined methodと表示されます。決してもらっても構いません。
+              .items-box_body
+                %h3.items-box-name
+                  -# = product_other.product_name
+                .items-box-num
+                  .items-box-price
+                    -# ¥
+                    -# = number_with_delimiter(product_other.price)
+                  .items-box-icon
+                    -# %i.far.fa-heart
+                    -# 8
+
+    %section.item-others--product
+      %h2.item-others--product__category-name 同カテゴリーその他の商品
+      .item-others--product__content
+      -# - @other_category.each_with_index do |other_category, i|
+        -# = link_to product_path(other_category) do
+          .item-others--product__content-product-box
+            .items-box_photo.item-box__image
+              -# = image_tag other_category.photos[0].variant(resize:'220x220',auto_orient: true).processed, class: "item-box__image--inner"
+              -# -# product_otherは'シード1回目'から表示されますが、'シード1回目'~'シード99回目'は画像が登録されてないのでvariantでundefined methodと表示されます。決してもらっても構いません。
+            .items-box_body
+              %h3.items-box-name
+                -# = other_category.product_name
+              .items-box-num
+                .items-box-price
+                  -# ￥
+                  = number_with_delimiter(other_category.price)
+                .items-box-icon
+                  -# %i.far.fa-heart
+                  -# 8
+= render 'layouts/footer'

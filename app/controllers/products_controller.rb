@@ -12,7 +12,7 @@ class ProductsController < ApplicationController
   end
 
   def show
-
+    # @probuct = Product.find(params[:id])
   end
 
   def edit
