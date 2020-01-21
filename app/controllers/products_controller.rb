@@ -44,7 +44,7 @@ class ProductsController < ApplicationController
                                       :sel_state,
                                       :condition,
                                       :name,
-                                      :category_id,
+                                      :category_id
                                       .merge(user_id: current_user.id))
   end
 end
