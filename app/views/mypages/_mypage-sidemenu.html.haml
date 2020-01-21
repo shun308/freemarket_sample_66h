@@ -72,11 +72,11 @@
     %h3.mypage-nav-bottom
       設定
       %ul.l-side__list
-        = link_to root_path(current_user), class:"l-side__list__link__area__name" do
+        = link_to "/mypages/#{current_user.id}/edit", class:"l-side__list__link__area__name" do
           %li.l-side__list__link
             プロフィール
             %i.fas.fa-angle-right
-        = link_to "", class:"l-side__list__link__area__name" do
+        = link_to "/address/#{current_user.id}/edit", class:"l-side__list__link__area__name" do
           %li.l-side__list__link
             発送元・お届け先住所変更
             %i.fas.fa-angle-right
@@ -88,7 +88,7 @@
           %li.l-side__list__link
             メール/パスワード
             %i.fas.fa-angle-right
-        = link_to root_path(current_user), class:"l-side__list__link__area__name" do
+        = link_to edit_user_path(current_user), class:"l-side__list__link__area__name" do
           %li.l-side__list__link
             本人情報
             %i.fas.fa-angle-right
@@ -96,7 +96,7 @@
           %li.l-side__list__link
             電話番号の確認
             %i.fas.fa-angle-right
-        = link_to root_path(current_user), class:"l-side__list__link__area__name" do
+        = link_to logout_users_path, class:"l-side__list__link__area__name" do
           %li.l-side__list__link
             ログアウト
             %i.fas.fa-angle-right
