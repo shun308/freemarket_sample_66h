@@ -3,8 +3,8 @@ class Image < ApplicationRecord
   belongs_to :product ,optional: true
 
   #バリデーション
-  validates :name, presence: true
+  validates :image, presence: true
   
   # 画像アップローダー
-  #mount_uploader :name, ImageUploader
+  mount_uploader :image, ImageUploader
 end

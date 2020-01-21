@@ -8,7 +8,12 @@ class ProductsController < ApplicationController
   end
 
   def create
-
+    @product = Product.new(product_params)
+    if @product.save
+      redirect_to products_path(@product)
+    else
+      render 'products/new'
+    end
   end
 
   def show
@@ -25,6 +30,21 @@ class ProductsController < ApplicationController
 
   def destroy
 
-  end
 
+  end
+  def product_params
+    params.require(:product).permit(  :size,
+                                      :description, 
+                                      :brand,
+                                      :price,
+                                      :shipping_method,
+                                      :region,
+                                      :period_before_shipping,
+                                      :fee,
+                                      :sel_state,
+                                      :condition,
+                                      :name,
+                                      :category_id,
+                                      .merge(user_id: current_user.id))
+  end
 end

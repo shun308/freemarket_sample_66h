@@ -91,3 +91,8 @@ gem 'fog-aws'
 gem 'jquery-rails' 
 gem 'jquery-ui-rails'
 gem 'payjp'
+
+
+# image uploader
+gem 'carrierwave'
+gem 'mini_magick'
