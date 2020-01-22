@@ -109,7 +109,16 @@
               %ul
                 %li.has_error_text 配送料の負担を再選択してください
         = render partial: 'error-messages', locals: {product: @product, column: "delivery_method"}
-        
+
+        .listing-product-regional-original-delivery
+          .listing-default__label 配送の方法
+          %span.listing-default--require 必須
+          .listing-select-wrapper
+            .listing-select-wrapper__box
+              = f.select :shipping_method, Product.shipping_methods.keys.to_a, { include_blank: "---" }, {class: 'listing-select-wrapper__box--select'}
+              %i.fas.fa-chevron-down.listing-select-wrapper__box--arrow-down
+        = render partial: 'error-messages', locals: {product: @product, column: "shipping_method"}
+
         .listing-product-regional-original-delivery
           .listing-default__label 配送元の地域
           %span.listing-default--require 必須
