@@ -39,12 +39,12 @@
             %th.table--section-left
               カテゴリー
             %th.table--section-right 
-              -# = @product.category.name
+              = @product.category_id
           %tr.table--section
             %th.table--section-left
               ブランド
             %th.table--section-right
-              -# = @product.brand&.name  #突然 .brand.name がundefined：nameになる 
+              = @product.brand
           %tr.table--section
             %th.table--section-left
               商品状態
