@@ -25,3 +25,6 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+
+# when develope, images are ignore on git-hub
+/public/uploads/image/*
