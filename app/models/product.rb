@@ -1,23 +1,34 @@
 class Product < ApplicationRecord
   has_many :images, dependent: :delete_all
+  accepts_nested_attributes_for :images, allow_destroy: true
   #has_many :comments
-  belongs_to :category
+  #belongs_to :category
   belongs_to :user
   #has_one :order
   #has_many :likes
 
-  enum category_id: {
+  enum sell_state: {
     レディース:1,メンズ:2,ベビー・キッズ:3,インテリア・住まい・小物:4,本・音楽・ゲーム:5,おもちゃ・ホビー・グッズ:6,コスメ・香水・美容:7,
     家電・スマホ・カメラ:8,スポーツ・レジャー:9,ハンドメイド:10,チケット:11,自転車・オートバイ:12,その他:13
     },_suffix: true
+
+  enum size: {
+    レディース:1,メンズ:2,ベビー・キッズ:3,インテリア・住まい・小物:4,本・音楽・ゲーム:5,おもちゃ・ホビー・グッズ:6,コスメ・香水・美容:7,
+    家電・スマホ・カメラ:8,スポーツ・レジャー:9,ハンドメイド:10,チケット:11,自転車・オートバイ:12,その他:13
+    },_suffix: true
+
+  enum category_id: {
+    レディース:1,メンズ:2,ベビー・キッズ:3,インテリア・住まい・小物:4,本・音楽・ゲーム:5,おもちゃ・ホビー・グッズ:6,コスメ・香水・美容:7,
+    家電・スマホ・カメラ:8,スポーツ・レジャー:9,ハンドメイド:10,チケット:11,自転車・オートバイ:12,その他:13
+    }
 
   enum fee: {
     送料込み（出品者負担）:1,着払い（購入者負担）:2
     }
 
-  # enum shipping_method: {
-  #   "---":0, 未定:1, クロネコヤマト:2, ゆうパック :3, ゆうメール:4
-  # }
+  enum shipping_method: {
+    "---":0, 未定:1,クロネコヤマト:2,ゆうパック:3,ゆうメール:4
+    }
 
   enum region:{
     北海道:1,青森県:2,岩手県:3,宮城県:4,秋田県:5,山形県:6,福島県:7,

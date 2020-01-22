@@ -1,10 +1,12 @@
 class ProductsController < ApplicationController
+  
   def index
 
   end
 
   def new
     @product = Product.new
+    @product.images.build
   end
 
   def create
@@ -32,6 +34,9 @@ class ProductsController < ApplicationController
 
 
   end
+
+  private
+  
   def product_params
     params.require(:product).permit(  :size,
                                       :description, 
@@ -41,10 +46,10 @@ class ProductsController < ApplicationController
                                       :region,
                                       :period_before_shipping,
                                       :fee,
-                                      :sel_state,
+                                      :sell_state,
                                       :condition,
                                       :name,
-                                      :category_id
-                                      .merge(user_id: current_user.id))
+                                      :category_id,
+                                      images_attributes:[:image]).merge(user_id: current_user.id)
   end
 end
