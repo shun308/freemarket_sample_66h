@@ -14,9 +14,11 @@
 
           .listing-upload__drag-box--inner-text
             クリックしてファイルをアップロード
-      = f.fields_for :images do |i|
-        = i.file_field :image
-      .preview-reset リセットアップロード
+      = f.fields_for :images do |image|
+        .js-file_group{"data-index" => image.index}
+          = image.file_field :image, class: 'js-file'
+          %br/
+          %span.js-remove 削除
       = render partial: 'error-messages', locals: {product: @product, column: "image"}
       - if @product.errors.any?
         - unless @product.valid?
@@ -39,33 +41,6 @@
         = f.text_area :description, rows: 10, wrap: "soft", class: 'listing-default__form-field',  placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
         = render partial: 'error-messages', locals: {product: @product, column: "description"}
 
-      .listing-product-status
-        = f.label '商品の状態', class: 'listing-default__label'
-        %span.listing-default--require 必須
-        .listing-select-wrapper
-          .listing-select-wrapper__box
-            = f.select :size, Product.sizes.keys.to_a,{ include_blank: "---" }, {class: 'listing-select-wrapper__box--select'}
-            %i.fas.fa-chevron-down.listing-select-wrapper__box--arrow-down
-        = render partial: 'error-messages', locals: {product: @product, column: "size"}
-
-      .listing-product-status
-        = f.label '商品の状態', class: 'listing-default__label'
-        %span.listing-default--require 必須
-        .listing-select-wrapper
-          .listing-select-wrapper__box
-            = f.select :sell_state, Product.sell_states.keys.to_a,{ include_blank: "---" }, {class: 'listing-select-wrapper__box--select'}
-            %i.fas.fa-chevron-down.listing-select-wrapper__box--arrow-down
-        = render partial: 'error-messages', locals: {product: @product, column: "sell_state"}
-
-      .listing-product-status
-        = f.label '商品の状態', class: 'listing-default__label'
-        %span.listing-default--require 必須
-        .listing-select-wrapper
-          .listing-select-wrapper__box
-            = f.select :shipping_method, Product.shipping_methods.keys.to_a,{ include_blank: "---" }, {class: 'listing-select-wrapper__box--select'}
-            %i.fas.fa-chevron-down.listing-select-wrapper__box--arrow-down
-        = render partial: 'error-messages', locals: {product: @product, column: "shipping_method"}
-
     -# 商品の詳細セレクトボックスフォーム
     .listing-content.clearfix
       .listing-sub-head 商品の詳細
@@ -84,7 +59,25 @@
             - if @product.errors.full_messages_for(:category_id) == []
               %ul
                 %li.has_error_text カテゴリーを再選択してください
+        = render partial: 'error-messages', locals: {product: @product, column: "category_id"}
+
+        .listing-product-status
+          = f.label 'サイズ', class: 'listing-default__label'
+          %span.listing-default--require 必須
+          .listing-select-wrapper
+            .listing-select-wrapper__box
+              = f.select :size, Product.sizes.keys.to_a,{ include_blank: "---" }, {class: 'listing-select-wrapper__box--select'}
+              %i.fas.fa-chevron-down.listing-select-wrapper__box--arrow-down
         = render partial: 'error-messages', locals: {product: @product, column: "size"}
+
+        .listing-product-status
+          = f.label 'ブランド', class: 'listing-default__label'
+          %span.listing-default--require{style: "background-color:lightgrey;"} 任意
+          .listing-select-wrapper
+            = f.text_field :brand,class:"listing-select-wrapper__box--select", placeholder: '例） シャネル'
+            %i.fas.fa-chevron-down.listing-select-wrapper__box--arrow-down
+        = render partial: 'error-messages', locals: {product: @product, column: "brand"}
+
         .listing-product-status
           = f.label '商品の状態', class: 'listing-default__label'
           %span.listing-default--require 必須

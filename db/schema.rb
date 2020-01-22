@@ -20,14 +20,14 @@ ActiveRecord::Schema.define(version: 2020_01_21_041307) do
   end
 
   create_table "credits", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id"
     t.bigint "card_number", null: false
     t.integer "validated_date_month", default: 0, null: false
     t.integer "validated_date_year", default: 0, null: false
     t.integer "security_code", null: false
-    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_credits_on_user_id"
+    t.index ["user_id"], name: "fk_rails_9001739776"
   end
 
   create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 2020_01_21_041307) do
   create_table "products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "size", default: 0, null: false
     t.text "description", null: false
-    t.integer "brand", default: 0, null: false
+    t.string "brand"
     t.integer "price", null: false
     t.integer "shipping_method", default: 0, null: false
     t.integer "region", default: 0, null: false
