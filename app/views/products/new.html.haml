@@ -14,8 +14,10 @@
 
           .listing-upload__drag-box--inner-text
             クリックしてファイルをアップロード
-      = f.fields_for :images do |i|
-        = i.file_field :image
+    #image-box
+      = f.fields_for :images do |image|
+        .js-file_group{"data-index" => "#{image.index}"}
+          = image.file_field :image, class: 'js-file'
         .preview-reset リセットアップロード
       = render partial: 'error-messages', locals: {product: @product, column: "image"}
       - if @product.errors.any?
