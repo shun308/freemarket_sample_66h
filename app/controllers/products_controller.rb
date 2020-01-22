@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  
+  before_action :set_product, except: [:index, :new, :create]
   def index
 
   end
@@ -23,11 +23,15 @@ class ProductsController < ApplicationController
   end
 
   def edit
-
+    @product = Product.find(params[:id])
   end
 
   def update
-
+    if @product.update(product_params)
+      redirect_to root_path
+    else
+      redirect_to edit_product_path
+    end
   end
 
   def destroy
@@ -51,5 +55,9 @@ class ProductsController < ApplicationController
                                       :name,
                                       :category_id,
                                       images_attributes:[:image]).merge(user_id: current_user.id)
+  end
+
+  def set_product
+    @product = Product.find(params[:id])
   end
 end

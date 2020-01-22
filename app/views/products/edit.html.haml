@@ -1,7 +1,7 @@
 .listing-wrapper
   =render partial: 'layouts/header'
   
-  = form_with model: @product, class: 'listing-inner-contents', id: "editForm" do |f|
+  = form_with model: @product, method: :put, url:{controller:'products', action:'update'}, class: 'listing-inner-contents' do |f|
     .listing-inner-contents__title 商品の情報を入力
 
     .listing-upload
@@ -9,26 +9,28 @@
       %span.listing-upload--require 必須
       %p.listing-upload__subtext 最大10枚までアップロードできます
       .listing-upload__wrapper
-        -# = render partial: 'products/image-box', collection: @product.photos, as: "photo"
-        
+        -# = render partial: 'products/image-box', collection: @product.images
+
         .listing-upload__drag-box{onclick: "$('#photo_upload').click()"}
+         
           .listing-upload__drag-box--inner-text
             クリックしてファイルをアップロード
-        = f.file_field :photos, multiple: true, direct_upload: true, accept: 'image/jpg,image/png', id: 'photo_upload'
-      .preview-reset リセットアップロード
+      = f.fields_for :images do |i|
+        = i.file_field :image
+        .preview-reset リセットアップロード
 
     .listing-content.clearfix
       .listing-product-name
         = f.label "商品名", class: 'listing-default__label'
         %span.listing-default--require 必須
-        = f.text_field :product_name, class: 'listing-default__form', placeholder: '商品名（必須 40文字まで)', value: "#{}"
+        = f.text_field :name, class: 'listing-default__form', placeholder: '商品名（必須 40文字まで)', value: "#{@product.name}"
         -# = render partial: 'edit-error-messages', locals: {jp: "商品名", column: "product_name"}
         
       .listing-product-description
         = f.label '商品の説明', class: 'listing-default__label'
         %span.listing-default--require 必須
-        = f.text_area :product_introduction, rows: 10, wrap: "soft", class: 'listing-default__form-field', rows: 5,placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", value: "#{}"
-        -# = render partial: 'edit-error-messages', locals: {jp: "商品の説明", column: "product_introduction"}
+        = f.text_area :introduction, class: 'listing-default__form-field',placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", value: "#{@product.description}"
+        = render partial: 'edit-error-messages', locals: {jp: "商品の説明", column: "product_introduction"}
 
     .listing-content.clearfix
       .listing-sub-head 商品の詳細
@@ -38,36 +40,36 @@
           %span.listing-default--require 必須
           .listing-select-wrapper
             .listing-select-wrapper__box
+              = f.select :category_id, Product.category_ids.keys.to_a,{ include_blank: "---" }, {class: 'listing-select-wrapper__box--select'}
+
               %i.fas.fa-chevron-down.listing-select-wrapper__box--arrow-down
 
           .listing-select-wrapper__added#children_wrapper
             .listing-select-wrapper__box
-              %i.fas.fa-chevron-down.listing-select-wrapper__box--arrow-down
+              -# %i.fas.fa-chevron-down.listing-select-wrapper__box--arrow-down
           .listing-select-wrapper__added#grandchildren_wrapper
             .listing-select-wrapper__box
-              %i.fas.fa-chevron-down.listing-select-wrapper__box--arrow-down
+              -# %i.fas.fa-chevron-down.listing-select-wrapper__box--arrow-down
             -# - if @selected_size
             .listing-product-detail__size#size_wrapper
               = f.label 'サイズ', class: 'listing-default__label'
               %span.listing-default--require 必須
               .listing-select-wrapper
                 .listing-select-wrapper__box
+                  = f.select :size, Product.sizes.keys.to_a,{ include_blank: "---" }, {class: 'listing-select-wrapper__box--select'}
+
                   %i.fas.fa-chevron-down.listing-select-wrapper__box--arrow-down
             -# - if @product.brand
             .listing-product-detail__size#brand_wrapper
               = f.label 'ブランド', class: 'listing-default__label'
               %span.listing-default--option 任意
               %input{name: 'brand', type: 'text', class: 'listing-default__form', placeholder: '例) シャネル', value: "#{}"}
-            -# - else
-            .listing-product-detail__size#brand_wrapper
-              = f.label 'ブランド', class: 'listing-default__label'
-              %span.listing-default--option 任意
-              %input{name: 'brand', type: 'text', class: 'listing-default__form', placeholder: '例) シャネル'}
         .listing-product-status
           = f.label '商品の状態', class: 'listing-default__label'
           %span.listing-default--require 必須
           .listing-select-wrapper
             .listing-select-wrapper__box
+              = f.select :condition, Product.conditions.keys.to_a,{ include_blank: "---" }, {class: 'listing-select-wrapper__box--select'}
               %i.fas.fa-chevron-down.listing-select-wrapper__box--arrow-down
 
     -# 商品の配送について
@@ -81,12 +83,16 @@
           %span.listing-default--require 必須
           .listing-select-wrapper
             .listing-select-wrapper__box
+              = f.select :fee, (Product.fees.keys), { include_blank: "---" }, {class: 'listing-select-wrapper__box--select',id:"delivery_charge"}
+
               %i.fas.fa-chevron-down.listing-select-wrapper__box--arrow-down
         .listing-product-delivery-method#delivery_method-parent
           = f.label '配送の方法', class: 'listing-default__label' 
           %span.listing-default--require 必須
           .listing-select-wrapper
             .listing-select-wrapper__box
+              = f.select :shipping_method, Product.shipping_methods.keys,{ include_blank: "---" }, {class: 'listing-select-wrapper__box--select',id:"delivery_charge"}
+
               %i.fas.fa-chevron-down.listing-select-wrapper__box--arrow-down
         
         .listing-product-regional-original-delivery
@@ -94,6 +100,8 @@
           %span.listing-default--require 必須
           .listing-select-wrapper
             .listing-select-wrapper__box
+              = f.select :region, Product.regions.keys.to_a, { include_blank: "---" }, {class: 'listing-select-wrapper__box--select'}
+
               %i.fas.fa-chevron-down.listing-select-wrapper__box--arrow-down
 
         .listing-product-days-up-to-delivery
@@ -101,6 +109,8 @@
           %span.listing-default--require 必須
           .listing-select-wrapper
             .listing-select-wrapper__box
+              = f.select :period_before_shipping, Product.period_before_shippings.keys.to_a, { include_blank: "---" }, {class: 'listing-select-wrapper__box--select'}
+
               %i.fas.fa-chevron-down.listing-select-wrapper__box--arrow-down
 
     -# 取引価格＆利益計算
@@ -116,20 +126,22 @@
             %span.listing-default--require--price 必須
           .form-right-justified__box 
             %p.form-right-justified__box--react-text ￥
-            = f.text_field :price, class: 'form-right-justified__box__entry', id: 'price-form', placeholder: '例） 300', value: "#{}"
+            = f.text_field :price, class: 'form-right-justified__box__entry', id: 'price-form', placeholder: '例） 300', value: "#{@product.price}"
+        = render partial: 'error-messages', locals: {product: @product, column: "price"}
 
         .form-right-justified-sub
           = f.label "販売手数料(10%)", class: 'form-right-justified-sub__label'
+          #sf-tag.form-right-justified-sub__fee -
 
         .form-right-justified-main
           = f.label "販売利益", class: 'form-right-justified-main__label'
+          #sp-tag.form-right-justified-main__revenue -
 
     -# 送信＆注意書き
     .listing-content.clearfix
       %p.listing-product-submit-box__text 
         = link_to '#', class:'subtext-link' do
           禁止されている出品
-        、
         =link_to '#', class:'subtext-link' do
           行為
         を必ずご確認ください。
@@ -147,6 +159,7 @@
       = button_tag '#', class: 'listing-product-submit-box__return-btn' do
         もどる
       #delete-photos
+      #upload-photos
 
 =render partial: 'layouts/footer'
 =render partial: 'layouts/footer-button'

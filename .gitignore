@@ -27,4 +27,4 @@
 /config/master.key
 
 # when develope, images are ignore on git-hub
-/public/uploads/image/*
+/public/uploads/*
