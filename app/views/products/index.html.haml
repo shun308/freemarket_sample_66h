@@ -15,7 +15,33 @@
           .text_place__right
             もっと見る>
         .product-container_contents__box-clearfix
-                  
+          -# - @products.each do |product|
+          -#   = image_tag product.images.find_by(product_id: product.id).image_url
+          -#   = product.name
+          -#   = product.price
+          .box-contents
+            - @products.each do |product|
+              .items-box
+                = link_to product_path(product), method: :get do
+                  .items-box_photo
+                    = image_tag product.images.find_by(product_id: product.id).image_url
+                  .items-box_body
+                    %h3.items-box-name
+                      = product.name
+                    .items-box-num
+                      .items-box-price
+                        ¥ 
+                        = product.price
+                      .items-box-icon
+                        %i.far.fa-heart
+                        = rand(50) + 1
+                    .items-box-tax
+                      (税込)
+                -# -if product.purchaser_id.present?
+                -#   .items-box_photo__sold
+                -#     .items-box_photo__sold__inner
+                -#       SOLD
+
 
       .product-container_box__clearfix
         .text_place
