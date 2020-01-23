@@ -28,3 +28,6 @@
 
 # when develope, images are ignore on git-hub
 /public/uploads/*
+
+# secrets.yml ignore on git-hub
+/config/secrets.yml
