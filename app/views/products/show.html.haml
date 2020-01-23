@@ -11,22 +11,21 @@
       = @product.name
     .item-container1__item-content.clearfix
       .content--photo
-        .content--photo-up
-          %ul.content--photo-up
-            - @product.images.each do |image|
-              %li.photo-up-piece
-                = image_tag image.image.url, size: "300x300"
-          -# - @product.images.each do |image|
-          -#   %li.photo-up-piece
-          -#     = image_tag product.image.
-        -# %ul.content--photo-down
-        -#   - @product.photos.each_with_index do |photo, i|
-        -#     %li.content-photo-down__piece
-        -#       = image_tag @product.photos[i].variant(resize:'60x60',auto_orient: true).processed
-        -#   -if @product.purchaser_id.present?
-          -#   .content--photo_sold
-          -#     .content--photo_sold__inner
-          -#       SOLD
+        %ul.content--photo-up
+          - @product.images.each_with_index do |image, i|
+            %li.photo-up-piece
+              = image_tag @product.images[i].image.url, size: "300x300"
+        %ul.content--photo-down
+          - @product.images.each_with_index do |image, i|
+            %li.content-photo-down__piece
+              = image_tag @product.images[i].image.url, size: "60x60"
+            -# -if @product.purchaser_id.present?
+            -#   .content--photo_sold
+            -#     .content--photo_sold__inner
+            -#       SOLD
+
+
+
 
       %table.content--detail-table
         %tbody.table
