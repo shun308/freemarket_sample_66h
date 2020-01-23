@@ -91,3 +91,4 @@ gem 'fog-aws'
 gem 'jquery-rails' 
 gem 'jquery-ui-rails'
 gem 'payjp'
+gem "gretel"
