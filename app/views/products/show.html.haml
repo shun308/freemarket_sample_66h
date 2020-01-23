@@ -1,0 +1,122 @@
+%script{src: 'product_show_photo', type: 'text/html'}
+
+/* class名の長さはscssの独自性を確保するためであり、読みにくさはご愛嬌。本当は独自性確保かつ読みやすさを追求したいが今は難しい。 */
+
+.wrapper3
+
+  = render 'layouts/header'
+
+  %section.item-container1
+    %h1.item-container1__item-name 
+      = @product.name
+    .item-container1__item-content.clearfix
+      .content--photo
+        %ul.content--photo-up
+          - @product.images.each_with_index do |image, i|
+            %li.photo-up-piece
+              = image_tag @product.images[i].image.url, size: "300x300"
+        %ul.content--photo-down
+          - @product.images.each_with_index do |image, i|
+            %li.content-photo-down__piece
+              = image_tag @product.images[i].image.url, size: "60x60"
+
+      %table.content--detail-table
+        %tbody.table
+          %tr.table--section
+            %th.table--section-left 
+              出品者
+            %th.table--section-right
+              = @product.user.nickname
+          %tr.table--section
+            %th.table--section-left
+              カテゴリー
+            %th.table--section-right 
+              = @product.category_id
+          %tr.table--section
+            %th.table--section-left
+              ブランド
+            %th.table--section-right
+              = @product.brand
+          %tr.table--section
+            %th.table--section-left
+              商品状態
+            %th.table--section-right
+              = @product.condition
+          %tr.table--section
+            %th.table--section-left
+              配送料負担
+            %th.table--section-right
+              = @product.fee 
+          %tr.table--section
+            %th.table--section-left
+              配送方法
+            %th.table--section-right
+              = @product.shipping_method
+          %tr.table--section
+            %th.table--section-left
+              配送元
+            %th.table--section-right
+              = @product.region 
+          %tr.table--section
+            %th.table--section-left
+              配送日目安
+            %th.table--section-right
+              = @product.period_before_shipping
+
+    .item-container1__item-price
+      %span.item-container1__item-price-bold
+        ¥
+        = number_with_delimiter(@product.price)
+      %span.item-container1__item-price-tax (税込)
+      %span.item-container1__item-price-shipping-fee
+      -if user_signed_in? && current_user.id == @product.user_id # 自分が出品した商品詳細画面
+        = link_to "商品の編集", edit_product_path, class: "item-container1__item-buy-btn"
+        %p
+          or
+        = link_to "出品を再開する","", class: "item-container1__item-buy-btn"
+        = link_to "この商品を削除する",  product_path(@product.id), method: :delete, class: "item-container1__item-buy-btn"
+      - else # 他者が出品した商品詳細画面
+        = link_to " 購入画面に進む", root_path,  class:"item-container1__item-buy-btn"       
+    .item-container1__item-description 
+      %p.item-description-inner
+    .item-container1__item-other-btn.clearfix
+      .link_btn_left
+        %button.item-other-btn-left 
+          いいね！
+          = rand(30) + 1
+      .link_btn_right
+        %i.fa.fa-lock
+        = link_to '安心安全への取り組み', root_path, class: 'item-other-btn-right'
+
+  %ul.item-nav.clearfix
+    %li.item-nav__link
+      = link_to '< Preview product', root_path, class: 'item-nav__link-prev'
+      = link_to 'Next product >', root_path, class: 'item-nav__link-next'
+  .sns
+    %ul.sns--aikon
+      %i.fab.fa-facebook-square
+      %i.fab.fa-twitter-square
+      %i.fab.fa-pinterest
+  .item-others
+    %section.item-others--seller
+      %h2.item-others--seller_name 出品者のその他の商品
+      .item-others--seller_product.clearfix
+        .item-others--seller_product_box
+          .items-box_photo.item-box__image
+          .items-box_body
+            %h3.items-box-name
+            .items-box-num
+              .items-box-price
+              .items-box-icon
+
+    %section.item-others--product
+      %h2.item-others--product__category-name 同カテゴリーその他の商品
+      .item-others--product__content
+        .item-others--product__content-product-box
+          .items-box_photo.item-box__image
+          .items-box_body
+            %h3.items-box-name
+            .items-box-num
+              .items-box-price
+              .items-box-icon
+= render 'layouts/footer'

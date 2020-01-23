@@ -54,6 +54,11 @@ group :development, :test do
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
 
+  # To use pry
+  gem 'pry-rails'
+  gem 'pry-byebug'
+  gem 'pry-doc'
+
 end
 
 group :development do
@@ -91,3 +96,11 @@ gem 'fog-aws'
 gem 'jquery-rails' 
 gem 'jquery-ui-rails'
 gem 'payjp'
+
+
+# image uploader
+gem 'carrierwave'
+gem 'mini_magick'
+
+# パンくず機能
+gem "gretel"

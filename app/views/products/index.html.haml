@@ -15,7 +15,20 @@
           .text_place__right
             もっと見る>
         .product-container_contents__box-clearfix
-                  
+          .box-contents
+            - @products.each do |product|
+              .items-box
+                = link_to product_path(product), method: :get do
+                  .items-box_photo
+                    = image_tag product.images.find_by(product_id: product.id).image_url, size: "213x260"
+                  .items-box_body
+                    %h3.items-box-name
+                      ¥ 
+                      = product.price
+                    .items-box-num
+                      .items-box-price
+                        = product.name
+
 
       .product-container_box__clearfix
         .text_place

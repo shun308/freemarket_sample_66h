@@ -1,0 +1,5 @@
+.image-box{data: {images: "#{image.id}"}} 
+  .image-box__top
+    = image_tag image.variant(resize: "114x114", auto_orient: true), class: "image-box__top--image"
+  .image-box_bottom
+    = link_to '削除', 'javascript:void(0);', class: 'image-box__bottom--delete'
