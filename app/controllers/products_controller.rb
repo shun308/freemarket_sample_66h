@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
   before_action :set_product, except: [:index, :new, :create]
   def index
-    @products = Product.order('created_at DESC').limit(10)
+    @products = Product.order('created_at DESC').limit(4)
   end
 
   def new
