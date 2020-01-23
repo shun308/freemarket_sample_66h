@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :set_product, except: [:index, :new, :create]
+  before_action :set_product, except: [:index, :new, :create, :destroy]
   def index
     @products = Product.order('created_at DESC').limit(4)
   end
@@ -35,9 +35,10 @@ class ProductsController < ApplicationController
   end
 
   def destroy
-    product = Product.find(params[:id])
-    product.destroy
+    # @product = Product.find(params[:id])
+    @product.destroy
     redirect_to root_path
+
   end
 
   private
@@ -55,7 +56,7 @@ class ProductsController < ApplicationController
                                       :condition,
                                       :name,
                                       :category_id,
-                                      images_attributes:[:image]).merge(user_id: current_user.id)
+                                      images_attributes:[:image, :_destroy, :id]).merge(user_id: current_user.id)
   end
 
   def set_product
