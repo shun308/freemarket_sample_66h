@@ -4,8 +4,6 @@ $(document).on('turbolinks:load', function() {
       //ファイルオブジェクトを取得する
       var file = e.target.files[0];
       var reader = new FileReader();
-      console.log(file);
-      console.log(reader);
 
       //アップロードした画像を設定する
       reader.onload = (function(file){
