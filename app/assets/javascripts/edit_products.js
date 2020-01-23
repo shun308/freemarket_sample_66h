@@ -5,7 +5,7 @@ $(document).on('turbolinks:load', function() {
     var count_images = $('.image-box').length;
     if (count_images == 10){//写真が10枚の時はファイルフィールドを隠す
       $('.listing-upload__drag-box').hide();
-    } 
+    }
     //写真の削除ボタンが押された時
     $('.listing-upload__wrapper').on('click', '.image-box__bottom--delete', function(){
       //削除ボタンの押された写真の表示を消す
@@ -48,3 +48,4 @@ $(document).on('turbolinks:load', function() {
     });
   });
 });
+
