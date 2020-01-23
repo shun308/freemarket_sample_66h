@@ -102,3 +102,5 @@ gem 'payjp'
 gem 'carrierwave'
 gem 'mini_magick'
 
+# パンくず機能
+gem "gretel"
