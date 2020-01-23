@@ -50,7 +50,6 @@
           %span.listing-default--require 必須
           .listing-select-wrapper
             .listing-select-wrapper__box
-              -#= f.select :category, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
               = f.select :category_id, Product.category_ids.keys.to_a, { include_blank: "---" }, {class: 'listing-select-wrapper__box--select'}
               %i.fas.fa-chevron-down.listing-select-wrapper__box--arrow-down
         = render partial: 'error-messages', locals: {product: @product, column: "category_id"}
@@ -100,8 +99,6 @@
           %span.listing-default--require 必須
           .listing-select-wrapper
             .listing-select-wrapper__box
-
-              -#= f.select :delivery_charge, options_for_select(Product.delivery_charges.keys, "---"), {}, {class: 'listing-select-wrapper__box--select',id:"delivery_charge"}
               = f.select :fee, Product.fees.keys, { include_blank: "---" }, {class: 'listing-select-wrapper__box--select'}
               %i.fas.fa-chevron-down.listing-select-wrapper__box--arrow-down
         = render partial: 'error-messages', locals: {product: @product, column: "fee"}

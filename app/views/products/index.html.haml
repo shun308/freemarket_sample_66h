@@ -15,10 +15,6 @@
           .text_place__right
             もっと見る>
         .product-container_contents__box-clearfix
-          -# - @products.each do |product|
-          -#   = image_tag product.images.find_by(product_id: product.id).image_url
-          -#   = product.name
-          -#   = product.price
           .box-contents
             - @products.each do |product|
               .items-box
@@ -32,10 +28,6 @@
                     .items-box-num
                       .items-box-price
                         = product.name
-                -# -if product.purchaser_id.present?
-                -#   .items-box_photo__sold
-                -#     .items-box_photo__sold__inner
-                -#       SOLD
 
 
       .product-container_box__clearfix
