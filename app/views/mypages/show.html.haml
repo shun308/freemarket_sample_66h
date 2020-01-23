@@ -1,3 +1,4 @@
+
 :css
   .l-side>ul>a:nth-child(1)>li{
     background-color: #eee !important;
@@ -5,6 +6,10 @@
   }
 =render partial: 'layouts/header'
 .body
+  -# config/breadcrumbs.rbに定義したmypageを呼び出し
+  - breadcrumb :mypages
+  -# 下記を記述した箇所にパンくずリストが表示される。
+  = breadcrumbs pretext: "",separator: " &rsaquo; "
   -# - breadcrumb :mypage
   -# =render partial: 'layouts/bread-crumbs'
   -# = render 'layouts/notifications'

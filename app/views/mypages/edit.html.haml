@@ -1,4 +1,7 @@
 =render partial: 'layouts/header'
+- breadcrumb :mypage3
+-# 下記を記述した箇所にパンくずリストが表示される。
+= breadcrumbs pretext: "",separator: " &rsaquo; "
 .wrapper1.clearfix
   =render 'mypages/mypage-sidemenu'
 

@@ -5,6 +5,9 @@
   }
 .body
   =render partial: 'layouts/header'
+  - breadcrumb :mypage2
+  -# 下記を記述した箇所にパンくずリストが表示される。
+  = breadcrumbs pretext: "",separator: " &rsaquo; "
   -# - breadcrumb :mypage
   -# =render partial: 'layouts/bread-crumbs'
   -# = render 'layouts/notifications'
