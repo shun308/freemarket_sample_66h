@@ -1,9 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: { sessions: 'users/sessions' }
-  # resources :purchase, only: [:index, :done]
   resources :purchase, only: [:show, :done]
   post '/purchase/:id/pay' => 'purchase#pay'
-  # post '/purchase/pay' => 'purchase#pay'
   get '/purchase/:id/done' => 'purchase#done'
   
   resources :cards, only: [:new, :show] do
@@ -14,7 +12,6 @@ Rails.application.routes.draw do
     end
   end
   
-  # root 'signup#registration'
   root 'products#index'
 
   #商品周り
