@@ -18,7 +18,7 @@
         = @products.name
     .purchase-product-container
       .purchase-product-container__price
-        ="¥ #{@products.price}"
+        =converting_to_jpy(@products_price)
         - if @products.fee == "送料込み（出品者負担）"
           送料込み
         - else
