@@ -8,7 +8,7 @@ class Product < ApplicationRecord
   #has_many :likes
 
   enum sell_state: {
-    出品中:1,売却済み:2,取引中:3,,過去の取引:4,
+    出品中:1,売却済み:2,取引中:3,過去の取引:4,
     }
 
   enum size: {
