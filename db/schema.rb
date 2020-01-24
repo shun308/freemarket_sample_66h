@@ -55,11 +55,13 @@ ActiveRecord::Schema.define(version: 2020_01_23_073124) do
     t.integer "region", default: 0, null: false
     t.integer "period_before_shipping", default: 0, null: false
     t.integer "fee", default: 0, null: false
-    t.integer "sell_state", default: 0, null: false
+    t.integer "sell_state", default: 1, null: false
     t.integer "condition", default: 0, null: false
     t.string "name", null: false
     t.integer "category_id", default: 0, null: false
     t.bigint "user_id", null: false
+    t.integer "seller_id", null: false
+    t.integer "buyer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["fee"], name: "index_products_on_fee"

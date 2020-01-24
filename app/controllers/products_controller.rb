@@ -56,7 +56,7 @@ class ProductsController < ApplicationController
                                       :condition,
                                       :name,
                                       :category_id,
-                                      images_attributes:[:image, :_destroy, :id]).merge(user_id: current_user.id)
+                                      images_attributes:[:image, :_destroy, :id]).merge(user_id: current_user.id,seller_id: current_user.id)
   end
 
   def set_product
