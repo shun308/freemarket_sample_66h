@@ -98,16 +98,3 @@ li:nth-of-type(5) .signup-header__nav--status:after{//5番目の丸の前方ラ�
   content: none;
 }
 
-li:nth-child(5).signup-header__nav--list {
-  color: #ea352d;
-  font-weight: 600;
-}
-li:nth-child(n+1):nth-child(-n+5) .signup-header__nav--status{
-  background-color: #ea352d;
-}
-li:nth-child(n+1):nth-child(-n+4) .signup-header__nav--status:after{
-  background-color: #ea352d;
-}
-li:nth-child(n+2):nth-child(-n+5) .signup-header__nav--status:before{
-  background-color: #ea352d;
-}

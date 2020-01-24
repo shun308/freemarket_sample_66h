@@ -1,0 +1,13 @@
+li:nth-child(2).signup-header__nav--list {
+  color: #ea352d;
+  font-weight: 600;
+}
+li:nth-child(n+1):nth-child(-n+2) .signup-header__nav--status{
+  background-color: #ea352d;
+}
+li:nth-child(1) .signup-header__nav--status:after{
+  background-color: #ea352d;
+}
+li:nth-child(2) .signup-header__nav--status:before{
+  background-color: #ea352d;
+}
