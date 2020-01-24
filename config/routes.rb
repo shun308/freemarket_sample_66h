@@ -40,7 +40,6 @@ Rails.application.routes.draw do
       get 'registration'
       get 'phone'
       get 'address'
-      get 'credit'
       get 'done'
     end
   end

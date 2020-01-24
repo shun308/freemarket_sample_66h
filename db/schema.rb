@@ -27,17 +27,6 @@ ActiveRecord::Schema.define(version: 2020_01_23_073124) do
     t.index ["product_id"], name: "index_categories_on_product_id"
   end
 
-  create_table "credits", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "card_number", null: false
-    t.integer "validated_date_month", default: 0, null: false
-    t.integer "validated_date_year", default: 0, null: false
-    t.integer "security_code", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "fk_rails_9001739776"
-  end
-
   create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "image", null: false
     t.bigint "product_id", null: false
@@ -112,7 +101,6 @@ ActiveRecord::Schema.define(version: 2020_01_23_073124) do
   end
 
   add_foreign_key "categories", "products"
-  add_foreign_key "credits", "users"
   add_foreign_key "images", "products"
   add_foreign_key "products", "users"
   add_foreign_key "sns_credentials", "users"

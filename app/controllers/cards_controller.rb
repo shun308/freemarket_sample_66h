@@ -3,7 +3,8 @@ class CardsController < ApplicationController
   require "payjp"
 
   def new
-    card = Card.where(user_id: current_user.id)
+    user = session[:id]
+    card = Card.where(user_id: user)
     redirect_to action: "show" if card.exists?
   end
 
@@ -18,7 +19,7 @@ class CardsController < ApplicationController
       @card = Card.new(user_id: current_user.id, customer_id: customer.id, card_id:customer.default_card)
       if @card.save
         # redirect_to purchase_path(session[:product_id])
-        redirect_to root_path
+        redirect_to done_signup_index_path
       else
         redirect_to action: "pay"
       end

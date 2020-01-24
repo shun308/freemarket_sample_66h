@@ -1,7 +1,21 @@
+:css
+  li:nth-child(4).signup-header__nav--list {
+    color: #ea352d;
+    font-weight: 600;
+  }
+  li:nth-child(n+1):nth-child(-n+4) .signup-header__nav--status{
+    background-color: #ea352d;
+  }
+  li:nth-child(n+1):nth-child(-n+3) .signup-header__nav--status:after{
+    background-color: #ea352d;
+  }
+  li:nth-child(n+2):nth-child(-n+4) .signup-header__nav--status:before{
+    background-color: #ea352d;
+  }
+
 .signup-forth
   %header.signup-header
-    .signup-header__log
-      = link_to image_tag("https://www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?1881812696", alt: "mercari", class: 'signup-header__log--link', width: '185', height: '49')
+    = render 'shared/sign-up-header'
   .forth-main
     %section.forth-main-wrapper
       .forth-main-wrapper__box--inner
