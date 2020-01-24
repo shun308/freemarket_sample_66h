@@ -5,8 +5,6 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   # Choose what kind of storage to use for this uploader:
 
-  # storage :file
-  # storage :fog
   # 検証環境と本番環境で画像保存先を切り分け
   if Rails.env.production?
     storage :fog
