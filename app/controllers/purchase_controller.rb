@@ -19,7 +19,7 @@ class PurchaseController < ApplicationController
     @products = Product.find(params[:id])
     @products_image = Product.order('created_at DESC').limit(1)
     # @product = Product.with_attached_photos.find(params[:id])
-    @products_price = (@products.price.to_i*0.9).round
+    @products_price = (@products.price.to_i).round
   end
 
   def pay
