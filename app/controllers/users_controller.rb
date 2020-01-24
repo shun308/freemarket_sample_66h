@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-  # before_action :set_user, only: [:edit,:update]
 
   def edit
     @user = User.find(params[:id])
@@ -25,7 +24,4 @@ class UsersController < ApplicationController
     params.require(:user).permit(:address_number,:address_prefecture,:address_name,:address_block,:address_building,:address_phone_number)
   end
 
-  # def set_user
-  #   @user = User.find(params[:id])
-  # end
 end

@@ -1,4 +1,3 @@
-// mixin
 @mixin letter{
   font-weight: bold;
   font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
@@ -9,7 +8,7 @@
 @mixin text-font{
   font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
 }
-// 変更する>
+
 @mixin change-link {
   color:#0099E8;
   font-family: FontAwesome;
