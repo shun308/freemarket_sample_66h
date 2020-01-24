@@ -17,6 +17,10 @@
             = @products.name
           %p.contents__subtitle--item-price
             = converting_to_jpy(@products_price)
+            - if @products.fee == "送料込み（出品者負担）"
+              送料込み
+            - else
+              ＋ 送料 ¥ 500
             %span.contents__subtitle--item-shipping (税込)送料込み 
 
     .content-midle
@@ -25,6 +29,10 @@
           %ul.payment-information-second__middle--payment_amount 支払い金額
           %ul.payment-information-second__middle--payment_price
             = converting_to_jpy(@products_price)
+            - if @products.fee == "送料込み（出品者負担）"
+              送料込み
+            - else
+              ＋ 送料 ¥ 500
         %button.payment-information-first__upper--point{type: "submit"} ポイントはありません
         -# = form_tag(action: :pay, method: :post) do
         -#   %button.payment-information-second__middle--payment_decide 購入する
