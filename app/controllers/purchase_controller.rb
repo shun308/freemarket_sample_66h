@@ -17,6 +17,7 @@ class PurchaseController < ApplicationController
       @card_brand = card_brand
     end
     @products = Product.find(params[:id])
+    @products_image = Product.order('created_at DESC').limit(1)
     # @product = Product.with_attached_photos.find(params[:id])
     @products_price = (@products.price.to_i*0.9).round
   end
@@ -44,6 +45,7 @@ class PurchaseController < ApplicationController
     @default_card_information = customer.cards.retrieve(card.card_id)
     @card_brand = card_brand
     @products = Product.find(params[:id])
+    @products_image = Product.order('created_at DESC').limit(1)
     # @product = Product.with_attached_photos.find(params[:id])
     @products_price = (@products.price.to_i*0.9).round
 

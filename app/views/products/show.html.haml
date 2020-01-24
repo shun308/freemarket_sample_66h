@@ -76,7 +76,7 @@
         = link_to "出品を再開する","", class: "item-container1__item-buy-btn"
         = link_to "この商品を削除する",  product_path(@product.id), method: :delete, class: "item-container1__item-buy-btn"
       - else # 他者が出品した商品詳細画面
-        = link_to " 購入画面に進む", root_path,  class:"item-container1__item-buy-btn"       
+        = link_to " 購入画面に進む","/purchase/#{@product.id}/",  class:"item-container1__item-buy-btn"       
     .item-container1__item-description 
       %p.item-description-inner
     .item-container1__item-other-btn.clearfix
