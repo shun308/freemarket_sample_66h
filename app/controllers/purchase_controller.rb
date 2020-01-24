@@ -48,6 +48,8 @@ class PurchaseController < ApplicationController
     @products_image = Product.order('created_at DESC').limit(1)
     # @product = Product.with_attached_photos.find(params[:id])
     @products_price = (@products.price.to_i*0.9).round
+    @products.sell_state = 2
+    @products.save
 
     # @product_purchaser= Product.find(params[:id])#購入者のidをpurchaser_idに保存
     # @product_purchaser.update( purchaser_id: current_user.id)
