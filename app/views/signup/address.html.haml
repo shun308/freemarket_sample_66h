@@ -1,19 +1,5 @@
-:css
-  li:nth-child(3).signup-header__nav--list {
-    color: #ea352d;
-    font-weight: 600;
-  }
-  li:nth-child(n+1):nth-child(-n+3) .signup-header__nav--status{
-    background-color: #ea352d;
-  }
-  li:nth-child(n+1):nth-child(-n+2) .signup-header__nav--status:after{
-    background-color: #ea352d;
-  }
-  li:nth-child(n+2):nth-child(-n+3) .signup-header__nav--status:before{
-    background-color: #ea352d;
-  }
 .signup-third
-  = render 'shared/sign-up-header'
+  = render 'shared/sign-up-header3'
   .third-main
     %section.third-main-wrapper
       .third-main-wrapper__title 発送元・お届け先住所入力
