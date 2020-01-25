@@ -3,7 +3,7 @@
 lock '3.11.2'
 
 # # master.key用のシンボリックリンクを追加
-set :linked_files, %w{ config/master.key }
+set :linked_files, fetch(:linked_files, []).push("config/master.key")
 
 # Capistranoのログの表示に利用する
 set :application, 'freemarket_sample_66h'
