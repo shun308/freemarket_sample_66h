@@ -3,7 +3,7 @@
 lock '3.11.2'
 
 # # master.key用のシンボリックリンクを追加
-# set :linked_files, %w{ config/master.key }
+set :linked_files, %w{ config/master.key }
 
 # Capistranoのログの表示に利用する
 set :application, 'freemarket_sample_66h'
@@ -36,17 +36,17 @@ namespace :deploy do
     invoke 'unicorn:start'
     # invoke 'unicorn:restart'
   end
-  # desc 'upload master.key'
-  # task :upload do
-  #   on roles(:app) do |host|
-  #     if test "[ ! -d #{shared_path}/config ]"
-  #       execute "mkdir -p #{shared_path}/config"
-  #     end
-  #     upload!('config/master.key', "#{shared_path}/config/master.key")
-  #   end
-  # end
+  desc 'upload master.key'
+  task :upload do
+    on roles(:app) do |host|
+      if test "[ ! -d #{shared_path}/config ]"
+        execute "mkdir -p #{shared_path}/config"
+      end
+      upload!('config/master.key', "#{shared_path}/config/master.key")
+    end
+  end
 
-  # before :starting, 'deploy:upload'
-  # after :finishing, 'deploy:cleanup'
+  before :starting, 'deploy:upload'
+  after :finishing, 'deploy:cleanup'
 end
 
