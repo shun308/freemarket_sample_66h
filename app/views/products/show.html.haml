@@ -76,7 +76,7 @@
       - if @product.sell_state == "売却済み"
         = link_to "売り切れました", root_path,  class:"item-container1__item-buy-btn"
       - elsif user_signed_in? && current_user.id == @product.user_id
-        = link_to "商品の編集", product_path(@product.id), class: "item-container1__item-buy-btn"
+        = link_to "商品の編集", edit_product_path(@product.id), class: "item-container1__item-buy-btn"
         %p
         or
         = link_to "出品を再開する","", class: "item-container1__item-buy-btn"
