@@ -1,5 +1,12 @@
-= link_to '/products/new', class:"footer-button" do
-  %div.footer-button__text
-    出品
-  %i.fas.fa-camera.fa-4x
-  %i.fas.fa-camera.fa-2x
+- if user_signed_in?
+  = link_to '/products/new', class:"footer-button" do
+    %div.footer-button__text
+      出品
+    %i.fas.fa-camera.fa-4x
+    %i.fas.fa-camera.fa-2x
+- else
+  = link_to new_user_session_path, class:"footer-button" do
+    %div.footer-button__text
+      出品
+    %i.fas.fa-camera.fa-4x
+    %i.fas.fa-camera.fa-2x
