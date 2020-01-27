@@ -1,3 +1,10 @@
+li:nth-of-type(1) .signup-header__nav--status:before{//一番目の丸の後方ラインの削除
+  content: none;
+}
+
+li:nth-of-type(5) .signup-header__nav--status:after{//5番目の丸の前方ラインの削除
+  content: none;
+}
 li:nth-child(1).signup-header__nav--list {
   color: #ea352d;
   font-weight: 600;
