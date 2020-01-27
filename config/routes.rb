@@ -1,7 +1,18 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: { sessions: 'users/sessions' }
+  resources :purchase, only: [:show, :done]
+  post '/purchase/:id/pay' => 'purchase#pay'
+  get '/purchase/:id/done' => 'purchase#done'
   
-  # root 'signup#registration'
+  resources :cards, only: [:new, :show] do
+    collection do
+      # 管理者機能実装後の実装
+      # post 'show', to: 'cards#show'
+      post 'pay', to: 'cards#pay'
+      post 'delete', to: 'cards#delete'
+    end
+  end
+  
   root 'products#index'
 
   #商品周り
@@ -27,7 +38,6 @@ Rails.application.routes.draw do
       get 'registration'
       get 'phone'
       get 'address'
-      get 'credit'
       get 'done'
     end
   end

@@ -3,8 +3,7 @@ class SignupController < ApplicationController
   before_action :redirect_to_top, except: :done
   before_action :save_to_session_before_phone, only: :phone
   before_action :save_to_session_before_address, only: :address
-  before_action :save_to_session_before_credit, only: :credit
-  before_action :save_to_session_before_done, only: :create
+  before_action :save_to_session_before_credit, only: :create
 
   def index # 新規会員登録方法画面
     session[:flag] = "signup" #signupページであることを示す目印
@@ -32,11 +31,6 @@ class SignupController < ApplicationController
     @user = User.new # 新規インスタンス作成
   end
   
-  def credit # 支払い方法登録画面
-    @user = User.new # 新規インスタンス作成
-    @user.build_credit # 新規creditsテーブルのインスタンス作成
-  end
-  
   def create # 支払い方法登録画面で"次へ進む"を押すと動くアクション
     @user = User.new(
       nickname: session[:nickname], # sessionに保存された値をインスタンスに渡す
@@ -62,19 +56,16 @@ class SignupController < ApplicationController
       address_building: session[:address_building], 
       address_phone_number: session[:address_phone_number], 
     )
-    # creditsテーブルのインスタンス作成
-    @user.build_credit(user_params[:credit_attributes])
-    # sns_credentialsテーブルのインスタンス作成（メールアドレスでの登録を除く）
-    @user.sns_credentials.build(provider: session[:provider], uid: session[:uid]) if session[:provider] && session[:uid]
+  
     if @user.save
       session[:id] = @user.id
-      redirect_to done_signup_index_path
+      sign_in User.find(session[:id]) unless user_signed_in?
+      redirect_to new_card_path
     else
       render '/signup/registration'
     end
 
     def done
-      sign_in User.find(session[:id]) unless user_signed_in?
     end
   end
     
@@ -220,36 +211,7 @@ private
     )
     render '/signup/address' unless @user.valid?
   end
-        
-  def save_to_session_before_done
-    # creditで入力した値をsessionに保存
-    @user = User.new(
-      nickname: session[:nickname], # sessionに保存された値をインスタンスに渡す
-      email: session[:email],
-      password: session[:password],
-      password_confirmation: session[:password_confirmation],
-      last_name: session[:last_name], 
-      first_name: session[:first_name], 
-      last_name_kana: session[:last_name_kana], 
-      first_name_kana: session[:first_name_kana], 
-      birthdate_year: session[:birthdate_year], 
-      birthdate_month: session[:birthdate_month], 
-      birthdate_day: session[:birthdate_day],
-      phone_number: session[:phone_number],
-      address_last_name: session[:address_last_name], 
-      address_first_name: session[:address_first_name], 
-      address_last_name_kana: session[:address_last_name_kana], 
-      address_first_name_kana: session[:address_first_name_kana], 
-      address_number: session[:address_number], 
-      address_prefecture: session[:address_prefecture], 
-      address_name: session[:address_name], 
-      address_block: session[:address_block], 
-      address_building: session[:address_building], 
-      address_phone_number: session[:address_phone_number]
-    )
-    @user.build_credit(user_params[:credit_attributes])
-    render '/signup/credit' unless @user.valid?
-  end
+
 
   # ログインしている場合、トップページへ戻す
   def redirect_to_top

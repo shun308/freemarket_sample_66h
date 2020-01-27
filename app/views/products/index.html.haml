@@ -21,6 +21,10 @@
                 = link_to product_path(product), method: :get do
                   .items-box_photo
                     = image_tag product.images.find_by(product_id: product.id).image_url, size: "213x260"
+                    - if product.sell_state == "売却済み"
+                      #content--photo_sold__index
+                        #content--photo_sold__inner__index
+                          SOLD
                   .items-box_body
                     %h3.items-box-name
                       ¥ 

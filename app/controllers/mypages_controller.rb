@@ -4,8 +4,6 @@ class MypagesController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
-    # @user.nickname = User.find_by(:nickname)
-    # @user.introduce = User.find_by(:introduce)
   end
 
   def update

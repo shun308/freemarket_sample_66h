@@ -1,23 +1,9 @@
-:css
-  li:nth-child(3).signup-header__nav--list {
-    color: #ea352d;
-    font-weight: 600;
-  }
-  li:nth-child(n+1):nth-child(-n+3) .signup-header__nav--status{
-    background-color: #ea352d;
-  }
-  li:nth-child(n+1):nth-child(-n+2) .signup-header__nav--status:after{
-    background-color: #ea352d;
-  }
-  li:nth-child(n+2):nth-child(-n+3) .signup-header__nav--status:before{
-    background-color: #ea352d;
-  }
 .signup-third
-  = render 'shared/sign-up-header'
+  = render 'signup-header3'
   .third-main
     %section.third-main-wrapper
       .third-main-wrapper__title 発送元・お届け先住所入力
-      = form_for @user, url: credit_signup_index_path, method: :get, html: {class: 'third-main-wrapper__box'} do |f|
+      = form_for @user, url: signup_index_path, method: :post, html: {class: 'third-main-wrapper__box'} do |f|
         .third-main-wrapper__box--inner
           .third-main-wrapper__form-top
             = f.label 'お名前', class: 'third-main-wrapper__form--label'
