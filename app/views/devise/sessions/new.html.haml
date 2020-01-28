@@ -23,8 +23,8 @@
               = alert
           = f.email_field :email, class: 'login-main__form--email', placeholder: 'メールアドレス'
           = f.password_field :password, class: 'login-main__form--password', placeholder: 'パスワード', autocomplete: "off"
-          .robot
-            = image_tag '/images/temporary_reCAPTCHA.png', size: '304x78'
+          .robot 
+            = image_tag 'temporary_reCAPTCHA.png', size: '304x78'
           = f.submit 'ログイン', class: 'login-main__form--btn'
           = link_to "#", class: 'login-main__forgot-password' do
             パスワードをお忘れの方
